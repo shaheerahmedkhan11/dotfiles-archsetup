@@ -72,3 +72,9 @@ Contributors = shortlog -sn
 	ui = auto
 [apply]
 	whitespace = fix
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/shaheer/.local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/shaheer/.local/bin/gh auth git-credential

@@ -1,0 +1,90 @@
+[
+    {
+        "key": "alt+z",
+        "command": "editor.action.toggleWordWrap",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+1",
+        "command": "workbench.action.openEditorAtIndex1",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+2",
+        "command": "workbench.action.openEditorAtIndex2",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+3",
+        "command": "workbench.action.openEditorAtIndex3",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+4",
+        "command": "workbench.action.openEditorAtIndex4",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+5",
+        "command": "workbench.action.openEditorAtIndex5",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+\\",
+        "command": "editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+[",
+        "command": "editor.foldAll",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+]",
+        "command": "editor.unfoldAll",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+.",
+        "command": "editor.action.codeAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+f12",
+        "command": "editor.action.peekReferences",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatDocument",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+k f",
+        "command": "editor.action.formatSelection",
+        "when": "editorTextFocus && editorHasSelection"
+    },
+    {
+        "key": "ctrl+shift+d",
+        "command": "editor.action.duplicateSelection",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+`",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+u",
+        "command": "workbench.action.terminal.clear",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+k ctrl+r",
+        "command": "workbench.action.reloadWindow"
+    },
+    {
+        "key": "ctrl+k ctrl+w",
+        "command": "workbench.action.closeWindow"
+    }
+]

@@ -1,0 +1,19 @@
+--theme="Catppuccin Mocha"
+--style="numbers,changes,header,grid"
+--italic-text=always
+--decorations=auto
+--color=auto
+--map-syntax "*.conf:INI"
+--map-syntax "*.toml:TOML"
+--map-syntax "*.yaml:YAML"
+--map-syntax "*.yml:YAML"
+--map-syntax "*.json:JSON"
+--map-syntax "*.jsonc:JSON"
+--map-syntax "*.ps1:PowerShell"
+--map-syntax "*.psm1:PowerShell"
+--map-syntax "*.psd1:PowerShell"
+--map-syntax "*.md:Markdown"
+--map-syntax "*.dockerfile:Dockerfile"
+--map-syntax "Dockerfile:Dockerfile"
+--map-syntax "*.env:INI"
+--map-syntax "*.gitignore:Git Ignore"

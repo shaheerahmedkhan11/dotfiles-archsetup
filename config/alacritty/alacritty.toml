@@ -1,0 +1,183 @@
+# ╔═══════════════════════════════════════════════════════════════╗
+# ║  Alacritty — Catppuccin Mocha Glassmorphic                  ║
+# ╚═══════════════════════════════════════════════════════════════╝
+
+[general]
+live_config_reload = true
+
+[terminal.shell]
+program = "/usr/bin/fish"
+args = ["--login"]
+
+[env]
+TERM = "xterm-256color"
+EDITOR = "nvim"
+COLORTERM = "truecolor"
+
+[window]
+padding = { x = 16, y = 12 }
+dynamic_padding = true
+decorations = "None"
+opacity = 0.78
+dynamic_title = true
+startup_mode = "Windowed"
+blur = true
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.dimensions]
+columns = 120
+lines = 36
+
+[window.position]
+x = 0
+y = 0
+
+[scrolling]
+history = 100000
+multiplier = 5
+
+[font]
+size = 13.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+[font.offset]
+x = 0
+y = 1
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+vi_mode_style = { shape = "Block", blinking = "Off" }
+blink_interval = 400
+unfocused_hollow = true
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [
+  { key = "Return",   mods = "Control|Shift", action = "ToggleFullscreen" },
+  { key = "N",        mods = "Control|Shift", action = "SpawnNewInstance" },
+  { key = "Q",        mods = "Control|Shift", action = "Quit" },
+  { key = "Plus",     mods = "Control|Shift", action = "IncreaseFontSize" },
+  { key = "Minus",    mods = "Control|Shift", action = "DecreaseFontSize" },
+  { key = "Key0",     mods = "Control|Shift", action = "ResetFontSize" },
+  { key = "C",        mods = "Control|Shift", action = "Copy" },
+  { key = "V",        mods = "Control|Shift", action = "Paste" },
+  { key = "K",        mods = "Control|Shift", action = "ClearHistory" },
+  { key = "PageUp",   mods = "Control|Shift", action = "ScrollPageUp" },
+  { key = "PageDown", mods = "Control|Shift", action = "ScrollPageDown" },
+  { key = "Home",     mods = "Control|Shift", action = "ScrollToTop" },
+  { key = "End",      mods = "Control|Shift", action = "ScrollToBottom" },
+  { key = "F",        mods = "Control|Shift", action = "SearchForward" },
+  { key = "B",        mods = "Control|Shift", action = "SearchBackward" },
+  { key = "Space",    mods = "Control|Shift", action = "ToggleViMode" },
+]
+
+# ═══════════════════════════════════════════════════════════
+# ── Catppuccin Mocha Theme
+# ═══════════════════════════════════════════════════════════
+
+[colors.primary]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+dim_foreground = "#cdd6f4"
+bright_foreground = "#ffffff"
+
+[colors.cursor]
+text = "#1e1e2e"
+cursor = "#f5e0dc"
+
+[colors.vi_mode_cursor]
+text = "#1e1e2e"
+cursor = "#cba6f7"
+
+[colors.selection]
+text = "#1e1e2e"
+background = "#f5e0dc"
+
+[colors.search.matches]
+foreground = "#1e1e2e"
+background = "#f9e2af"
+
+[colors.search.focused_match]
+foreground = "#1e1e2e"
+background = "#a6e3a1"
+
+[colors.footer_bar]
+foreground = "#1e1e2e"
+background = "#89b4fa"
+
+[colors.hints.start]
+foreground = "#1e1e2e"
+background = "#f9e2af"
+
+[colors.hints.end]
+foreground = "#1e1e2e"
+background = "#89b4fa"
+
+[colors.normal]
+black   = "#1e1e2e"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#cba6f7"
+cyan    = "#94e2d5"
+white   = "#bac2de"
+
+[colors.bright]
+black   = "#585b70"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#cba6f7"
+cyan    = "#94e2d5"
+white   = "#a6adc8"
+
+[colors.dim]
+black   = "#1e1e2e"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#cba6f7"
+cyan    = "#94e2d5"
+white   = "#bac2de"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#fab387"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#f5c2e7"
+
+[[colors.indexed_colors]]
+index = 18
+color = "#74c7ec"
+
+[[colors.indexed_colors]]
+index = 19
+color = "#b4befe"

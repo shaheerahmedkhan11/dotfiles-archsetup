@@ -1,0 +1,156 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+
+  "palette": {
+    "os": "#ACB0BE",
+    "blue": "#89B4FA",
+    "pink": "#F5C2E7",
+    "lavender": "#B4BEFE",
+    "green": "#A6E3A1",
+    "yellow": "#F9E2AF",
+    "red": "#F38BA8",
+    "cyan": "#94E2D5",
+    "orange": "#FAB387"
+  },
+
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "style": "plain",
+          "foreground": "p:os",
+          "template": "{{.Icon}} "
+        },
+
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "p:blue",
+          "template": " {{ .UserName }}@{{ .HostName }} "
+        },
+
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "p:pink",
+          "options": {
+            "style": "agnoster_short",
+            "home_icon": "~",
+            "folder_icon": ""
+          },
+          "template": "{{ .Path }} "
+        },
+
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:lavender",
+          "options": {
+            "branch_icon": " ",
+            "display_status": true,
+            "fetch_status": true,
+            "display_upstream_icon": true
+          },
+          "template": "{{ .HEAD }}{{ if .Working.Changed }} {{ end }}{{ if .Staging.Changed }} {{ end }} "
+        },
+
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "p:orange",
+          "template": " {{ .FormattedMs }}"
+        },
+
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:os",
+          "template": "❯"
+        }
+      ]
+    },
+
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "p:green",
+          "template": " {{ .Full }}"
+        },
+
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "p:yellow",
+          "template": " {{ .Full }}"
+        },
+
+        {
+          "type": "go",
+          "style": "plain",
+          "foreground": "p:cyan",
+          "template": " {{ .Full }}"
+        },
+
+        {
+          "type": "dart",
+          "style": "plain",
+          "foreground": "p:blue",
+          "template": " {{ .Full }}"
+        },
+
+        {
+          "type": "docker",
+          "style": "plain",
+          "foreground": "p:blue",
+          "template": " {{ .Context }}"
+        },
+
+        {
+          "type": "kubernetes",
+          "style": "plain",
+          "foreground": "p:red",
+          "template": "☸ {{ .Context }}",
+          "properties": {
+            "display_mode": "context"
+          }
+        },
+
+        {
+          "type": "memory",
+          "style": "plain",
+          "foreground": "p:green",
+          "template": " {{ .PhysicalPercentUsed }}%"
+        },
+
+        {
+          "type": "cpu",
+          "style": "plain",
+          "foreground": "p:red",
+          "template": " {{ .Percentage }}%"
+        },
+
+        {
+          "type": "battery",
+          "style": "plain",
+          "foreground": "p:yellow",
+          "template": " {{ .Percentage }}%"
+        },
+
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "p:blue",
+          "template": " {{ .CurrentDate | date \"15:04:05\" }}"
+        }
+      ]
+    }
+  ],
+
+  "final_space": true,
+  "version": 4
+}

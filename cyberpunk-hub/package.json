@@ -1,0 +1,14 @@
+{
+  "name": "cyberpunk-hub",
+  "version": "1.0.0",
+  "description": "Cyber-Hub - AI Vault Command Center",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "marked": "^15.0.0"
+  }
+}

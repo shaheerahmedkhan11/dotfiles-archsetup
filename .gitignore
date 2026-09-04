@@ -1,0 +1,19 @@
+# Secrets & credentials
+.git-credentials
+.ssh/
+*.pem
+*.key
+
+# Cache & runtime
+.cache/
+node_modules/
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editors temp
+*~
+*.swp
+*.swo

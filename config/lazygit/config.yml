@@ -1,0 +1,55 @@
+git:
+  abbreviate: true
+  allBranches: true
+  showIcons: true
+  mergeCommitsIcon: "󰿫 "
+  rebaseCommitsIcon: "  "
+  branchLogCmd: "git log --oneline --graph --decorate -20"
+  logCmd: "git log --oneline -20"
+  commitPrefix:
+    pattern: ""
+    replace: ""
+
+ui:
+  showIcons: true
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - "#89b4fa"
+      - bold
+    inactiveBorderColor:
+      - "#a6adc8"
+    searchingActiveBorderColor:
+      - "#f9e2af"
+      - bold
+    selectedLineBgColor:
+      - "#313244"
+    cherryPickedCommitFgColor:
+      - "#89b4fa"
+    cherryPickedCommitBgColor:
+      - "#45475a"
+    markedBaseCommitFgColor:
+      - "#f9e2af"
+    markedBaseCommitBgColor:
+      - "#45475a"
+    unstagedChangesColor:
+      - "#f38ba8"
+    defaultFgColor:
+      - "#cdd6f4"
+    unfocusedColor:
+      - "#6c7086"
+    authorColors:
+      - "#cba6f7"
+    gistBorderColor:
+      - "#89b4fa"
+    filesSectionSelectedGutterColor:
+      - "#89b4fa"
+  windowSize: "normal"
+  showFileTree: true
+  showCommandLog: true
+  showBranchHelp: true
+  branchColors:
+    main: "#cba6f7"
+    master: "#cba6f7"
+    develop: "#89b4fa"
+    staging: "#a6e3a1"

@@ -1,0 +1,288 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "npm: dev",
+            "type": "npm",
+            "script": "dev",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "npm: build",
+            "type": "npm",
+            "script": "build",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "npm: test",
+            "type": "npm",
+            "script": "test",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "npm: lint",
+            "type": "npm",
+            "script": "lint",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "npm: format",
+            "type": "npm",
+            "script": "format",
+            "group": "none",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "npm: clean install",
+            "type": "shell",
+            "command": "rm -rf node_modules && npm install",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            }
+        },
+        {
+            "label": "npm: update all",
+            "type": "shell",
+            "command": "npx npm-check-updates -u && npm install",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            }
+        },
+        {
+            "label": "Python: run",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "label": "Python: run module",
+            "type": "python",
+            "request": "launch",
+            "module": "${fileBasenameNoExtension}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "label": "Python: lint",
+            "type": "shell",
+            "command": "python -m mypy . && python -m flake8 .",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Python: format",
+            "type": "shell",
+            "command": "black . && isort .",
+            "group": "none",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Go: build",
+            "type": "shell",
+            "command": "go build ./...",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": ["$go"]
+        },
+        {
+            "label": "Go: test",
+            "type": "shell",
+            "command": "go test ./...",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": ["$go"]
+        },
+        {
+            "label": "Go: lint",
+            "type": "shell",
+            "command": "golangci-lint run",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            }
+        },
+        {
+            "label": "Rust: build",
+            "type": "shell",
+            "command": "cargo build",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": ["$rustc"]
+        },
+        {
+            "label": "Rust: test",
+            "type": "shell",
+            "command": "cargo test",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": ["$rustc"]
+        },
+        {
+            "label": "Rust: clippy",
+            "type": "shell",
+            "command": "cargo clippy -- -D warnings",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": ["$rustc"]
+        },
+        {
+            "label": "Rust: format",
+            "type": "shell",
+            "command": "cargo fmt",
+            "group": "none",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Flutter: run",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "label": "Flutter: debug",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "cwd": "${workspaceFolder}",
+            "flutterMode": "debug"
+        },
+        {
+            "label": "Flutter: test",
+            "type": "dart",
+            "request": "launch",
+            "program": "test/widget_test.dart",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "label": "Docker: build",
+            "type": "docker-build",
+            "dockerBuild": {
+                "context": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Docker: up",
+            "type": "docker-compose",
+            "dockerCompose": {
+                "up": {
+                    "detached": true,
+                    "build": true
+                }
+            },
+            "group": "none"
+        },
+        {
+            "label": "Docker: down",
+            "type": "docker-compose",
+            "dockerCompose": {
+                "down": {
+                    "removeVolumes": false
+                }
+            },
+            "group": "none"
+        },
+        {
+            "label": "Git: status",
+            "type": "shell",
+            "command": "git status",
+            "group": "none",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Git: log",
+            "type": "shell",
+            "command": "git log --oneline -20",
+            "group": "none",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            }
+        }
+    ]
+}

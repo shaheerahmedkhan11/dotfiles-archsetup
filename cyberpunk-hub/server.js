@@ -394,6 +394,122 @@ app.delete('/api/daily-log/:date', safe((req, res) => {
   remove(rel, A) ? json(res, { ok: true }) : err(res, 'Not found', 404);
 }));
 
+// ── Conversation Capture (merged from AI-OS Dashboard) ────────────────
+app.post('/api/conversations', safe((req, res) => {
+  const { tool, domain, question, answer } = req.body;
+  if (!question || !tool) return err(res, 'Tool and question required');
+  const d = new Date().toISOString().slice(0, 10);
+  const t = new Date().toTimeString().slice(0, 5);
+  const safeQ = sanitize(String(question)).replace(/[\\/:*?"<>|]/g, '_').replace(/\s+/g, '_').slice(0, 50);
+  const fn = `${d}_${String(tool).toLowerCase()}_${safeQ}.md`;
+  const rel = `04 - AI Conversations/${fn}`;
+  write(rel, [
+    '---',
+    `aliases: [auto-${String(tool).toLowerCase()}]`,
+    'tags: [auto-captured, ai-conversation, ' + String(domain || 'general').toLowerCase() + ']',
+    `tool: ${tool}`,
+    `domain: ${domain || ''}`,
+    `date: ${d}`,
+    `time: ${t}`,
+    '---',
+    '',
+    `# AI Conversation: ${question}`,
+    '',
+    `**Tool:** ${tool}`,
+    `**Domain:** ${domain || 'TBD'}`,
+    `**Date:** ${d} ${t}`,
+    '',
+    '---',
+    '',
+    '## Question/Topic',
+    '',
+    question,
+    '',
+    '## Response',
+    '',
+    answer || '',
+    '',
+    '## Key Takeaways',
+    '',
+    '- [ ] ',
+    '- [ ] ',
+    '- [ ] ',
+    '',
+    '---',
+    '*Captured via Cyber-Hub*'
+  ].join('\n'), A);
+  json(res, { ok: true, path: rel });
+}));
+
+// ── Learning Session (merged from AI-OS Dashboard) ────────────────────
+app.post('/api/learning-session', safe((req, res) => {
+  const { domain, focus, duration, didWhat, progressUpdate, levelUpdate } = req.body;
+  if (!domain || !focus) return err(res, 'Domain and focus required');
+  const d = new Date().toISOString().slice(0, 10);
+  const t = new Date().toTimeString().slice(0, 5);
+  const safeFocus = sanitize(String(focus)).replace(/[\\/:*?"<>|]/g, '_').replace(/\s+/g, '_').slice(0, 30);
+  const safeDomain = sanitize(String(domain)).replace(/[\\/:*?"<>|]/g, '_').replace(/\s+/g, '_');
+  const fn = `${d}_session_${safeDomain}_${safeFocus}.md`;
+  const rel = `06 - Daily Logs/${fn}`;
+  write(rel, [
+    '---',
+    'aliases: [session-' + String(focus).toLowerCase().replace(/\s+/g, '-') + ']',
+    'tags: [learning, session, ' + String(domain).toLowerCase().replace(/\s+/g, '') + ']',
+    `date: ${d}`,
+    `time: ${t}`,
+    '---',
+    '',
+    `# 📚 Learning Session: ${focus}`,
+    '',
+    '## 📋 Session Info',
+    '',
+    `**Date:** ${d}`,
+    `**Time:** ${t}`,
+    `**Domain:** ${domain}`,
+    `**Focus Area:** ${focus}`,
+    `**Duration:** ${duration || ''}`,
+    '',
+    '---',
+    '',
+    '## 🎯 Learning Objectives',
+    '',
+    '- [x] Practice and implement ' + focus,
+    '- [ ] Document key concepts and takeaways',
+    '',
+    '## 📚 What I Learned & Did',
+    '',
+    '1. **Applied Practice:** ' + (didWhat || ''),
+    '',
+    '## 💻 Practice Done',
+    '',
+    '- Hands-on implementation of ' + focus + '.',
+    '- Tested code and verified outputs.',
+    '',
+    '---',
+    '*Logged via Cyber-Hub*'
+  ].join('\n'), A);
+  if (progressUpdate !== undefined || levelUpdate !== undefined) {
+    const rawDom = String(domain).trim();
+    const skillRel = `02 - Skills/${rawDom}.md`;
+    const skillRelSlug = `02 - Skills/${safeDomain}.md`;
+    const c = read(skillRel, A) || read(skillRelSlug, A);
+    const usedRel = read(skillRel, A) ? skillRel : skillRelSlug;
+    if (c && usedRel) {
+      backup(usedRel, A);
+      let updated = c;
+      if (levelUpdate !== undefined) {
+        updated = updated.replace(/mastery_level:\s*\S+/, `mastery_level: ${Math.min(6, Math.max(1, parseInt(levelUpdate) || 1))}`);
+      }
+      if (progressUpdate !== undefined) {
+        updated = updated.replace(/progress:\s*\S+/, `progress: ${Math.min(100, Math.max(0, parseInt(progressUpdate) || 0))}`);
+      }
+      updated = updated.replace(/status:\s*[^\n]*/, `status: ${parseInt(progressUpdate || 0) >= 100 ? 'Completed' : 'In Progress'}`);
+      write(usedRel, updated, A);
+    }
+  }
+  json(res, { ok: true, path: rel });
+}));
+
 // ── Skills ─────────────────────────────────────────────────────────────
 app.get('/api/skills', safe((_, res) => {
   json(res, walk('02 - Skills', '.md', 0, A).map(f => {

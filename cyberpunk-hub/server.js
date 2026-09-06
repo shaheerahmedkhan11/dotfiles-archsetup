@@ -428,7 +428,7 @@ app.put('/api/skill/:name/mastery', safe((req, res) => {
     updated = updated.replace(/progress:\s*\S+/, `progress: ${Math.min(100, Math.max(0, parseInt(progress) || 0))}`);
   }
   if (status !== undefined) {
-    updated = updated.replace(/status:\s*\S+/, `status: ${sanitize(status)}`);
+    updated = updated.replace(/status:\s*[^\n]*/, `status: ${sanitize(status)}`);
   }
   write(rel, updated, A);
   json(res, { ok: true });

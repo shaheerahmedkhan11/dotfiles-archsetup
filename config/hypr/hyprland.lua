@@ -62,15 +62,15 @@ hl.config({
     decoration = {
         rounding       = 14,
 
-        active_opacity    = 0.92,
-        inactive_opacity  = 0.82,
+        active_opacity    = 0.96,
+        inactive_opacity  = 0.90,
         fullscreen_opacity = 1.0,
 
         shadow = {
             enabled       = true,
             range         = 8,
             render_power  = 4,
-            color         = "rgba(11111b99)",
+            color         = "rgba(11111b66)",
             offset        = "0, 4",
             scale         = 1,
         },
@@ -80,9 +80,9 @@ hl.config({
             size           = 14,
             passes         = 5,
             vibrancy       = 0.18,
-            contrast       = 1.1,
-            brightness     = 0.95,
-            noise          = 0.025,
+            contrast       = 1.0,
+            brightness     = 1.15,
+            noise          = 0.02,
             xray           = false,
             ignore_opacity = true,
             popups         = true,

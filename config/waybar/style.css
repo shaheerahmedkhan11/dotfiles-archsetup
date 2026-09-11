@@ -1,6 +1,6 @@
 /* ╔═══════════════════════════════════════════════════════════╗
-   ║  Waybar — Cyberpunk Glassmorphic Theme                   ║
-   ║  GTK3 native: no box-shadow/text-shadow/backdrop-filter  ║
+   ║  Waybar — Exquisite Catppuccin Glassmorphic              ║
+   ║  Premium visual quality · Subtle gradients · Glow       ║
    ╚═══════════════════════════════════════════════════════════╝ */
 
 * {
@@ -17,15 +17,17 @@ window#waybar {
 }
 
 tooltip {
-    background: rgba(17, 17, 27, 0.95);
+    background: rgba(11, 11, 20, 0.92);
     color: #cdd6f4;
-    border-radius: 10px;
-    border: 1px solid rgba(137, 180, 250, 0.4);
-    padding: 8px 10px;
+    border-radius: 14px;
+    border: 1px solid rgba(137, 180, 250, 0.35);
+    padding: 10px 14px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 tooltip label {
     color: #cdd6f4;
+    font-size: 12px;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -37,7 +39,7 @@ tooltip label {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   Base Module Container — Glassmorphic
+   Base Module — Premium Glassmorphic
    ═══════════════════════════════════════════════════════════ */
 #custom-launcher,
 #workspaces,
@@ -55,13 +57,14 @@ tooltip label {
 #idle_inhibitor,
 #custom-notifications,
 #custom-power {
-    background: rgba(30, 30, 46, 0.75);
+    background: rgba(24, 24, 37, 0.72);
     color: #cdd6f4;
-    padding: 1px 6px;
-    margin: 2px 1px;
-    border-radius: 10px;
-    border: 1px solid rgba(137, 180, 250, 0.15);
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: 1px 8px;
+    margin: 3px 2px;
+    border-radius: 12px;
+    border: 1px solid rgba(137, 180, 250, 0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 #custom-launcher:hover,
@@ -76,9 +79,10 @@ tooltip label {
 #idle_inhibitor:hover,
 #custom-notifications:hover,
 #custom-power:hover {
-    background: rgba(49, 50, 68, 0.9);
-    border: 1px solid rgba(203, 166, 247, 0.5);
-    padding: 1px 8px;
+    background: rgba(36, 36, 52, 0.88);
+    border: 1px solid rgba(203, 166, 247, 0.45);
+    padding: 1px 10px;
+    box-shadow: 0 4px 16px rgba(137, 180, 250, 0.12);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -86,49 +90,51 @@ tooltip label {
    ═══════════════════════════════════════════════════════════ */
 #custom-launcher {
     color: #89b4fa;
-    font-size: 14px;
-    padding: 1px 10px;
-    background: rgba(137, 180, 250, 0.18);
-    border: 1px solid rgba(137, 180, 250, 0.35);
+    font-size: 15px;
+    padding: 1px 12px;
+    background: rgba(137, 180, 250, 0.15);
+    border: 1px solid rgba(137, 180, 250, 0.30);
 }
 
 #custom-launcher:hover {
     color: #b4befe;
-    background: rgba(137, 180, 250, 0.35);
-    border: 1px solid rgba(137, 180, 250, 0.6);
+    background: rgba(137, 180, 250, 0.30);
+    border: 1px solid rgba(137, 180, 250, 0.55);
+    box-shadow: 0 0 12px rgba(137, 180, 250, 0.15);
 }
 
 /* ═══════════════════════════════════════════════════════════
    Workspaces
    ═══════════════════════════════════════════════════════════ */
 #workspaces {
-    padding: 0 2px;
+    padding: 0 3px;
 }
 
 #workspaces button {
-    padding: 1px 5px;
-    color: #6c7086;
-    border-radius: 6px;
-    margin: 1px 1px;
-    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: 1px 6px;
+    color: #585b70;
+    border-radius: 8px;
+    margin: 2px 1px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 #workspaces button:hover {
     color: #cdd6f4;
-    background: rgba(69, 71, 90, 0.5);
+    background: rgba(69, 71, 90, 0.45);
 }
 
 #workspaces button.active {
-    color: #1e1e2e;
-    background: rgba(137, 180, 250, 0.9);
+    color: #11111b;
+    background: rgba(137, 180, 250, 0.92);
     font-weight: 800;
-    padding: 1px 8px;
-    border: 1px solid rgba(137, 180, 250, 0.6);
+    padding: 1px 10px;
+    border: 1px solid rgba(137, 180, 250, 0.5);
+    box-shadow: 0 0 10px rgba(137, 180, 250, 0.18);
 }
 
 #workspaces button.urgent {
-    color: #1e1e2e;
-    background: rgba(243, 139, 168, 0.9);
+    color: #11111b;
+    background: rgba(243, 139, 168, 0.92);
     animation: blink 0.8s infinite alternate;
 }
 
@@ -137,18 +143,19 @@ tooltip label {
    ═══════════════════════════════════════════════════════════ */
 #custom-cyberhub {
     color: #cba6f7;
-    background: rgba(203, 166, 247, 0.15);
-    border: 1px solid rgba(203, 166, 247, 0.3);
+    background: rgba(203, 166, 247, 0.12);
+    border: 1px solid rgba(203, 166, 247, 0.25);
 }
 
 #custom-cyberhub.online {
     color: #a6e3a1;
-    border: 1px solid rgba(166, 227, 161, 0.3);
+    border: 1px solid rgba(166, 227, 161, 0.30);
+    box-shadow: 0 0 8px rgba(166, 227, 161, 0.08);
 }
 
 #custom-cyberhub.offline {
     color: #f38ba8;
-    border: 1px solid rgba(243, 139, 168, 0.3);
+    border: 1px solid rgba(243, 139, 168, 0.30);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -157,8 +164,8 @@ tooltip label {
 #window {
     color: #a6adc8;
     font-style: italic;
-    background: rgba(24, 24, 37, 0.5);
-    border: 1px solid rgba(108, 112, 134, 0.15);
+    background: rgba(17, 17, 27, 0.45);
+    border: 1px solid rgba(108, 112, 134, 0.10);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -166,11 +173,11 @@ tooltip label {
    ═══════════════════════════════════════════════════════════ */
 #mpris {
     color: #a6e3a1;
-    border: 1px solid rgba(166, 227, 161, 0.25);
+    border: 1px solid rgba(166, 227, 161, 0.20);
 }
 
 #mpris.paused {
-    color: #6c7086;
+    color: #585b70;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -179,9 +186,10 @@ tooltip label {
 #clock {
     color: #cba6f7;
     font-weight: 800;
-    background: rgba(203, 166, 247, 0.18);
-    border: 1px solid rgba(203, 166, 247, 0.35);
-    padding: 1px 8px;
+    background: rgba(203, 166, 247, 0.15);
+    border: 1px solid rgba(203, 166, 247, 0.30);
+    padding: 1px 10px;
+    font-size: 12px;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -195,7 +203,7 @@ tooltip label {
    Hardware Group
    ═══════════════════════════════════════════════════════════ */
 #group-hardware {
-    padding: 0 3px;
+    padding: 0 4px;
 }
 
 #cpu {
@@ -227,7 +235,7 @@ tooltip label {
    Controls Group
    ═══════════════════════════════════════════════════════════ */
 #group-controls {
-    padding: 0 3px;
+    padding: 0 4px;
 }
 
 #backlight {
@@ -284,7 +292,7 @@ tooltip label {
    System Tray
    ═══════════════════════════════════════════════════════════ */
 #tray {
-    padding: 0 4px;
+    padding: 0 5px;
 }
 
 #tray > .passive {
@@ -293,7 +301,7 @@ tooltip label {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.25);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -316,16 +324,17 @@ tooltip label {
    ═══════════════════════════════════════════════════════════ */
 #custom-power {
     color: #f38ba8;
-    font-size: 13px;
-    padding: 1px 8px;
-    background: rgba(243, 139, 168, 0.12);
-    border: 1px solid rgba(243, 139, 168, 0.35);
+    font-size: 14px;
+    padding: 1px 10px;
+    background: rgba(243, 139, 168, 0.10);
+    border: 1px solid rgba(243, 139, 168, 0.30);
 }
 
 #custom-power:hover {
-    color: #1e1e2e;
-    background: rgba(243, 139, 168, 0.85);
-    border: 1px solid rgba(243, 139, 168, 0.6);
+    color: #11111b;
+    background: rgba(243, 139, 168, 0.88);
+    border: 1px solid rgba(243, 139, 168, 0.5);
+    box-shadow: 0 0 14px rgba(243, 139, 168, 0.18);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -333,14 +342,14 @@ tooltip label {
    ═══════════════════════════════════════════════════════════ */
 @keyframes blink {
     to {
-        background-color: rgba(243, 139, 168, 0.15);
+        background-color: rgba(243, 139, 168, 0.12);
         color: #f38ba8;
     }
 }
 
 @keyframes temp-blink {
     to {
-        background-color: rgba(243, 139, 168, 0.2);
+        background-color: rgba(243, 139, 168, 0.18);
     }
 }
 
@@ -358,14 +367,14 @@ tooltip label {
    ═══════════════════════════════════════════════════════════ */
 #custom-netspeed {
     color: #94e2d5;
-    background: rgba(148, 226, 213, 0.12);
-    border: 1px solid rgba(148, 226, 213, 0.25);
-    padding: 1px 6px;
+    background: rgba(148, 226, 213, 0.10);
+    border: 1px solid rgba(148, 226, 213, 0.22);
+    padding: 1px 7px;
 }
 
 #custom-netspeed:hover {
-    background: rgba(148, 226, 213, 0.25);
-    border: 1px solid rgba(148, 226, 213, 0.45);
+    background: rgba(148, 226, 213, 0.22);
+    border: 1px solid rgba(148, 226, 213, 0.42);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -373,15 +382,15 @@ tooltip label {
    ═══════════════════════════════════════════════════════════ */
 #custom-updates {
     color: #a6e3a1;
-    background: rgba(166, 227, 161, 0.12);
-    border: 1px solid rgba(166, 227, 161, 0.25);
-    padding: 1px 6px;
+    background: rgba(166, 227, 161, 0.10);
+    border: 1px solid rgba(166, 227, 161, 0.22);
+    padding: 1px 7px;
 }
 
 #custom-updates.updates {
     color: #f9e2af;
-    background: rgba(249, 226, 175, 0.15);
-    border: 1px solid rgba(249, 226, 175, 0.35);
+    background: rgba(249, 226, 175, 0.12);
+    border: 1px solid rgba(249, 226, 175, 0.32);
     animation: pulse-updates 2s ease-in-out infinite;
 }
 
@@ -390,39 +399,39 @@ tooltip label {
 }
 
 #custom-updates:hover {
-    background: rgba(166, 227, 161, 0.25);
-    border: 1px solid rgba(166, 227, 161, 0.45);
+    background: rgba(166, 227, 161, 0.22);
+    border: 1px solid rgba(166, 227, 161, 0.42);
 }
 
 /* ═══════════════════════════════════════════════════════════
    Idle Inhibitor
    ═══════════════════════════════════════════════════════════ */
 #idle_inhibitor {
-    color: #6c7086;
-    padding: 1px 6px;
+    color: #585b70;
+    padding: 1px 7px;
 }
 
 #idle_inhibitor.active {
     color: #a6e3a1;
-    background: rgba(166, 227, 161, 0.15);
-    border: 1px solid rgba(166, 227, 161, 0.35);
+    background: rgba(166, 227, 161, 0.12);
+    border: 1px solid rgba(166, 227, 161, 0.30);
 }
 
 #idle_inhibitor.paused {
-    color: #6c7086;
+    color: #585b70;
 }
 
 #idle_inhibitor:hover {
-    background: rgba(108, 112, 134, 0.25);
+    background: rgba(108, 112, 134, 0.22);
 }
 
 /* ═══════════════════════════════════════════════════════════
    Privacy
    ═══════════════════════════════════════════════════════════ */
 #privacy {
-    padding: 1px 4px;
-    background: rgba(30, 30, 46, 0.5);
-    border: 1px solid rgba(108, 112, 134, 0.15);
+    padding: 1px 5px;
+    background: rgba(24, 24, 37, 0.45);
+    border: 1px solid rgba(108, 112, 134, 0.12);
 }
 
 #privacy-screen-support {
@@ -431,8 +440,8 @@ tooltip label {
 
 #privacy-screen-support.active {
     color: #a6e3a1;
-    background: rgba(166, 227, 161, 0.15);
-    border: 1px solid rgba(166, 227, 161, 0.3);
+    background: rgba(166, 227, 161, 0.12);
+    border: 1px solid rgba(166, 227, 161, 0.25);
 }
 
 #privacy-microphone {
@@ -441,8 +450,8 @@ tooltip label {
 
 #privacy-microphone.active {
     color: #f9e2af;
-    background: rgba(249, 226, 175, 0.15);
-    border: 1px solid rgba(249, 226, 175, 0.3);
+    background: rgba(249, 226, 175, 0.12);
+    border: 1px solid rgba(249, 226, 175, 0.25);
 }
 
 #privacy-camera {
@@ -451,6 +460,6 @@ tooltip label {
 
 #privacy-camera.active {
     color: #89dceb;
-    background: rgba(137, 220, 235, 0.15);
-    border: 1px solid rgba(137, 220, 235, 0.3);
+    background: rgba(137, 220, 235, 0.12);
+    border: 1px solid rgba(137, 220, 235, 0.25);
 }

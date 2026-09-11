@@ -1,5 +1,5 @@
 -- Hyprland Lua Configuration (v0.56.2+)
--- Catppuccin Mocha Glass Developer Environment
+-- Catppuccin Mocha — Exquisite Glassmorphic Developer Environment
 
 ------------------
 ---- MONITORS ----
@@ -35,8 +35,8 @@ hl.env("HYPRCURSOR_THEME", "Catppuccin Mocha Dark")
 hl.env("GTK_THEME", "catppuccin-mocha-blue-standard+default")
 hl.env("GTK_ICON_THEME", "Papirus-Dark")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
-hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
+hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("GDK_BACKEND", "wayland,x11")
 hl.env("CLUTTER_BACKEND", "wayland")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
@@ -48,49 +48,50 @@ hl.env("XDG_SCREENSHOTS_DIR", "$HOME/Pictures/Screenshots")
 -----------------------
 hl.config({
     general = {
-        gaps_in  = 4,
-        gaps_out = 12,
-        border_size = 2,
+        gaps_in              = 6,
+        gaps_out             = 10,
+        border_size          = 2,
         col = {
-            active_border   = { colors = {"rgba(89b4faee)", "rgba(cba6f7ee)"}, angle = 45 },
-            inactive_border = "rgba(454759aa)",
+            active_border    = { colors = {"rgba(89b4faee)", "rgba(cba6f7ee)"}, angle = 135 },
+            inactive_border  = "rgba(454759aa)",
         },
-        layout = "dwindle",
-        allow_tearing = false,
+        layout               = "dwindle",
+        allow_tearing        = false,
     },
 
     decoration = {
-        rounding       = 12,
+        rounding       = 14,
         rounding_power = 2,
-        active_opacity   = 0.95,
-        inactive_opacity = 0.88,
+
+        active_opacity    = 0.92,
+        inactive_opacity  = 0.82,
         fullscreen_opacity = 1.0,
 
         shadow = {
-            enabled      = true,
-            range        = 6,
-            render_power = 3,
-            color        = 0xee1a1a1a,
-            offset       = "0, 2",
-            scale        = 1,
+            enabled       = true,
+            range         = 8,
+            render_power  = 4,
+            color         = "rgba(11111b99)",
+            offset        = "0, 4",
+            scale         = 1,
         },
 
         blur = {
-            enabled    = true,
-            size       = 12,
-            passes     = 4,
-            vibrancy   = 0.1696,
-            contrast   = 1.0,
-            brightness = 1.0,
-            noise      = 0.02,
-            xray       = false,
+            enabled        = true,
+            size           = 14,
+            passes         = 5,
+            vibrancy       = 0.18,
+            contrast       = 1.1,
+            brightness     = 0.95,
+            noise          = 0.025,
+            xray           = false,
             ignore_opacity = true,
-            popups     = true,
-            popups_ignorealpha = 0.2,
+            popups         = true,
+            popups_ignorealpha = 0.15,
         },
 
-        dim_inactive = false,
-        dim_strength = 0.3,
+        dim_inactive     = true,
+        dim_strength     = 0.15,
     },
 
     animations = {
@@ -98,33 +99,42 @@ hl.config({
     },
 })
 
--- Default curves and animations
-hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
-hl.curve("easeInOutCubic", { type = "bezier", points = { {0.65, 0.05}, {0.36, 1}    } })
-hl.curve("linear",         { type = "bezier", points = { {0, 0},       {1, 1}       } })
-hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}    } })
-hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
+-- ── Curves ───────────────────────────────────────────────
+hl.curve("easeOutQuint",    { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
+hl.curve("easeInOutCubic",  { type = "bezier", points = { {0.65, 0.05}, {0.36, 1}    } })
+hl.curve("linear",          { type = "bezier", points = { {0, 0},       {1, 1}       } })
+hl.curve("almostLinear",    { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}    } })
+hl.curve("quick",           { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
 
--- Default springs
-hl.curve("easy",           { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
+-- ── Springs ──────────────────────────────────────────────
+hl.curve("default",         { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
+hl.curve("easy",            { type = "spring", mass = 1, stiffness = 120,      dampening = 14 })
 
-hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
-hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows",       enabled = true,  speed = 4.79, spring = "easy" })
-hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 4.1,  spring = "easy",         style = "popin 87%" })
-hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.49, bezier = "linear",       style = "popin 87%" })
-hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 1.73, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.46, bezier = "almostLinear" })
-hl.animation({ leaf = "fade",          enabled = true,  speed = 3.03, bezier = "quick" })
-hl.animation({ leaf = "layers",        enabled = true,  speed = 3.81, bezier = "easeOutQuint" })
-hl.animation({ leaf = "layersIn",      enabled = true,  speed = 4,    bezier = "easeOutQuint", style = "fade" })
-hl.animation({ leaf = "layersOut",     enabled = true,  speed = 1.5,  bezier = "linear",       style = "fade" })
-hl.animation({ leaf = "fadeLayersIn",  enabled = true,  speed = 1.79, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true,  speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
+-- ── Animations ───────────────────────────────────────────
+hl.animation({ leaf = "global",        enabled = true,  speed = 12,   bezier = "default" })
+hl.animation({ leaf = "border",        enabled = true,  speed = 6,    bezier = "easeOutQuint" })
+hl.animation({ leaf = "borderangle",   enabled = true,  speed = 8,    bezier = "easeOutQuint" })
+
+hl.animation({ leaf = "windows",       enabled = true,  speed = 5,    spring = "easy" })
+hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 4.5,  spring = "easy",         style = "popin 85%" })
+hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.6,  bezier = "linear",       style = "popin 85%" })
+
+hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 2,    bezier = "almostLinear" })
+hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.5,  bezier = "almostLinear" })
+hl.animation({ leaf = "fade",          enabled = true,  speed = 3.5,  bezier = "quick" })
+
+hl.animation({ leaf = "layers",        enabled = true,  speed = 4,    bezier = "easeOutQuint" })
+hl.animation({ leaf = "layersIn",      enabled = true,  speed = 4.5,  bezier = "easeOutQuint", style = "fade" })
+hl.animation({ leaf = "layersOut",     enabled = true,  speed = 1.6,  bezier = "linear",       style = "fade" })
+
+hl.animation({ leaf = "fadeLayersIn",  enabled = true,  speed = 2,    bezier = "almostLinear" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true,  speed = 1.5,  bezier = "almostLinear" })
+
+hl.animation({ leaf = "workspaces",    enabled = true,  speed = 2.2,  bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 2.2,  bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 2.2,  bezier = "almostLinear", style = "fade" })
+
+hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 8,    bezier = "quick" })
 
 -----------------------
 ---- LAYOUTS --------
@@ -132,15 +142,16 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 hl.config({
     dwindle = {
         preserve_split = true,
-        force_split = 2,
+        force_split    = 2,
+        pseudotile     = true,
     },
 })
 
 hl.config({
     master = {
-        new_status = "master",
-        new_on_top = true,
-        mfact = 0.55,
+        new_status    = "master",
+        new_on_top    = true,
+        mfact         = 0.55,
     },
 })
 
@@ -149,9 +160,10 @@ hl.config({
 -----------------
 hl.config({
     misc = {
-        force_default_wallpaper = 0,
-        disable_hyprland_logo   = true,
-        disable_splash_rendering = true,
+        force_default_wallpaper    = 0,
+        disable_hyprland_logo      = true,
+        disable_splash_rendering   = true,
+        new_window_takes_over_fullscreen = 2,
     },
 })
 
@@ -160,10 +172,10 @@ hl.config({
 ---------------
 hl.config({
     input = {
-        kb_layout  = "us",
-        follow_mouse = 1,
-        sensitivity = 0,
-        accel_profile = "flat",
+        kb_layout      = "us",
+        follow_mouse   = 1,
+        sensitivity    = 0,
+        accel_profile  = "flat",
         touchpad = {
             natural_scroll = false,
         },
@@ -171,15 +183,15 @@ hl.config({
 })
 
 hl.gesture({
-    fingers = 3,
+    fingers  = 3,
     direction = "horizontal",
-    action = "workspace",
+    action   = "workspace",
 })
 
 hl.gesture({
-    fingers = 4,
+    fingers  = 4,
     direction = "vertical",
-    action = "workspace",
+    action   = "workspace",
 })
 
 hl.device({
@@ -240,7 +252,7 @@ hl.bind(mainMod .. " + right",     hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",        hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",      hl.dsp.focus({ direction = "down" }))
 
--- Window Movement (Shift + Arrows / Vim keys)
+-- Window Movement (Shift + Arrows)
 hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.exec_cmd("hyprctl dispatch movewindow l"))
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.exec_cmd("hyprctl dispatch movewindow r"))
 hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.exec_cmd("hyprctl dispatch movewindow u"))
@@ -312,6 +324,7 @@ hl.bind("CTRL + ALT + Delete",    hl.dsp.exec_cmd("loginctl lock-session"))
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
+
 -- Float rules
 hl.window_rule({ name = "float-pavucontrol", match = { class = "pavucontrol" }, float = true })
 hl.window_rule({ name = "float-blueman",     match = { class = "blueman-manager" }, float = true })
@@ -343,10 +356,14 @@ hl.window_rule({ name = "float-clean",       match = { class = "clean" }, float 
 hl.window_rule({ name = "float-calc",        match = { class = "calc" }, float = true, size = {600, 400} })
 
 -- Browser opacity
-hl.window_rule({ name = "opacity-firefox",   match = { class = "firefox" }, opacity = 0.95 })
-hl.window_rule({ name = "opacity-brave",     match = { class = "Brave-browser" }, opacity = 0.95 })
+hl.window_rule({ name = "opacity-firefox",   match = { class = "firefox" }, opacity = 0.90 })
+hl.window_rule({ name = "opacity-brave",     match = { class = "Brave-browser" }, opacity = 0.90 })
 
 -- IDE opacity
-hl.window_rule({ name = "opacity-code",      match = { class = "Code" }, opacity = 0.92 })
-hl.window_rule({ name = "opacity-code-oss",  match = { class = "code-oss" }, opacity = 0.92 })
-hl.window_rule({ name = "opacity-cursor",    match = { class = "Cursor" }, opacity = 0.92 })
+hl.window_rule({ name = "opacity-code",      match = { class = "Code" }, opacity = 0.88 })
+hl.window_rule({ name = "opacity-code-oss",  match = { class = "code-oss" }, opacity = 0.88 })
+hl.window_rule({ name = "opacity-cursor",    match = { class = "Cursor" }, opacity = 0.88 })
+
+-- Terminal opacity
+hl.window_rule({ name = "opacity-kitty",     match = { class = "kitty" }, opacity = 0.82 })
+hl.window_rule({ name = "opacity-alacritty", match = { class = "Alacritty" }, opacity = 0.82 })

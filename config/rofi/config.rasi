@@ -26,7 +26,7 @@ configuration {
 * {
     font: "JetBrainsMono Nerd Font 12";
 
-    background:           rgba(17, 17, 27, 75%);
+    background:           rgba(11, 11, 20, 82%);
     foreground:           rgba(205, 214, 244, 100%);
 
     blue:                 rgba(137, 180, 250, 100%);
@@ -38,38 +38,38 @@ configuration {
     teal:                 rgba(148, 226, 213, 100%);
     lavender:             rgba(180, 190, 254, 100%);
 
-    surface-0:            rgba(30, 30, 46, 100%);
-    surface-1:            rgba(24, 24, 37, 100%);
-    surface-2:            rgba(49, 50, 68, 100%);
+    surface-0:            rgba(24, 24, 37, 100%);
+    surface-1:            rgba(17, 17, 27, 100%);
+    surface-2:            rgba(36, 36, 52, 100%);
 
-    border-glow:          rgba(137, 180, 250, 40%);
-    border-glow-hover:    rgba(137, 180, 250, 60%);
-    border-glow-active:   rgba(137, 180, 250, 80%);
+    border-glow:          rgba(137, 180, 250, 35%);
+    border-glow-hover:    rgba(137, 180, 250, 55%);
+    border-glow-active:   rgba(137, 180, 250, 75%);
 
     text-muted:           rgba(108, 112, 134, 100%);
 
     normal-background:    transparent;
     normal-foreground:    @foreground;
 
-    selected-normal-background: rgba(137, 180, 250, 20%);
+    selected-normal-background: rgba(137, 180, 250, 18%);
     selected-normal-foreground: @blue;
 
-    active-background:    rgba(137, 180, 250, 14%);
+    active-background:    rgba(137, 180, 250, 12%);
     active-foreground:    @blue;
 
-    urgent-background:    rgba(243, 139, 168, 18%);
+    urgent-background:    rgba(243, 139, 168, 16%);
     urgent-foreground:    @red;
 
-    alternate-normal-background: rgba(137, 180, 250, 8%);
+    alternate-normal-background: rgba(137, 180, 250, 6%);
     alternate-normal-foreground: @foreground;
-    alternate-active-background: rgba(137, 180, 250, 14%);
+    alternate-active-background: rgba(137, 180, 250, 12%);
     alternate-active-foreground: @blue;
-    alternate-urgent-background: rgba(243, 139, 168, 18%);
+    alternate-urgent-background: rgba(243, 139, 168, 16%);
     alternate-urgent-foreground: @red;
 
     selected-active-background: @selected-normal-background;
     selected-active-foreground: @blue;
-    selected-urgent-background: rgba(243, 139, 168, 32%);
+    selected-urgent-background: rgba(243, 139, 168, 28%);
     selected-urgent-foreground: @red;
 
     border-color:         @border-glow;
@@ -87,11 +87,12 @@ window {
     background-color: @background;
     border:             2;
     border-color:       @border-glow;
-    border-radius:      20px;
+    border-radius:      22px;
     padding:            0;
-    width:              42%;
+    width:              44%;
     location:           center;
     anchor:             center;
+    box-shadow:         0 12px 48px rgba(0, 0, 0, 0.45);
 }
 
 mainbox {
@@ -105,10 +106,10 @@ mainbox {
 inputbar {
     children:           [ prompt, entry ];
     spacing:            0;
-    padding:            10px 12px 10px 10px;
-    margin:             10px 10px 6px 10px;
+    padding:            12px 14px 12px 12px;
+    margin:             12px 12px 8px 12px;
     background-color:   @surface-1;
-    border-radius:      14px;
+    border-radius:      16px;
     border:             1;
     border-color:       @border-glow;
 }
@@ -116,27 +117,27 @@ inputbar {
 prompt {
     spacing:            0;
     text-color:         @surface-1;
-    padding:            6px 14px;
-    margin:             0 8px 0 0;
+    padding:            7px 16px;
+    margin:             0 10px 0 0;
     background-color:   @blue;
-    border-radius:      10px;
+    border-radius:      12px;
 }
 
 entry {
     spacing:            0;
     text-color:         @foreground;
-    padding:            6px 12px;
+    padding:            7px 14px;
     background-color:   transparent;
     placeholder:        "Search...";
     placeholder-color:  @text-muted;
 }
 
 mode-switcher {
-    spacing:            6px;
-    padding:            6px 14px;
-    margin:             0 10px 6px 10px;
+    spacing:            8px;
+    padding:            8px 16px;
+    margin:             0 12px 8px 12px;
     background-color:   @surface-1;
-    border-radius:      12px;
+    border-radius:      14px;
     border:             1;
     border-color:       @border-glow;
 }
@@ -144,15 +145,15 @@ mode-switcher {
 button {
     spacing:            4px;
     text-color:         @text-muted;
-    padding:            6px 14px;
+    padding:            7px 16px;
     background-color:   transparent;
-    border-radius:      8px;
+    border-radius:      10px;
     border:             0;
     margin:             0;
 }
 
 button selected {
-    background-color:   rgba(137, 180, 250, 18%);
+    background-color:   rgba(137, 180, 250, 16%);
     text-color:         @blue;
 }
 
@@ -164,17 +165,17 @@ listview {
     fixed-height:       true;
     lines:              7;
     columns:            2;
-    spacing:            4px;
+    spacing:            5px;
     scrollbar:          true;
-    padding:            4px 6px 8px 6px;
-    margin:             0 10px 10px 10px;
+    padding:            6px 8px 10px 8px;
+    margin:             0 12px 12px 12px;
     background-color:   transparent;
 }
 
 element {
     border:             0;
-    padding:            8px 10px;
-    border-radius:      10px;
+    padding:            9px 12px;
+    border-radius:      12px;
     background-color:   transparent;
     text-color:         @foreground;
 }
@@ -230,28 +231,28 @@ element.alternate.active {
 }
 
 scrollbar {
-    width:              6px;
+    width:              7px;
     border:             0;
     padding:            0;
     margin:             2px 2px 2px 0;
-    border-radius:      3px;
+    border-radius:      4px;
     background-color:   @surface-0;
-    handle-color:       rgba(88, 91, 112, 60%);
-    handle-width:       4px;
+    handle-color:       rgba(88, 91, 112, 50%);
+    handle-width:       5px;
 }
 
 message {
-    padding:            6px 12px;
-    margin:             0 10px 8px 10px;
+    padding:            8px 14px;
+    margin:             0 12px 10px 12px;
     background-color:   @surface-1;
-    border-radius:      10px;
+    border-radius:      12px;
     border:             1;
     border-color:       @border-glow;
 }
 
 textbox {
     text-color:         @foreground;
-    padding:            4px 8px;
+    padding:            5px 10px;
     background-color:   transparent;
 }
 
@@ -267,7 +268,7 @@ num-filtered-rows, num-rows, textbox-num-separator {
 
 textbox-num-separator {
     str:                "/";
-    padding:            0 2px;
+    padding:            0 3px;
 }
 
 textbox-prompt-colon {

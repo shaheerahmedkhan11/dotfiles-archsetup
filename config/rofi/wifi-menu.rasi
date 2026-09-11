@@ -1,0 +1,31 @@
+@import "config.rasi"
+
+window {
+    width:              40%;
+}
+
+inputbar {
+    children:           [ prompt ];
+}
+
+prompt {
+    padding:            8px 16px;
+    background-color:   @teal;
+    text-color:         @surface-1;
+}
+
+listview {
+    lines:              8;
+    columns:            1;
+    fixed-height:       false;
+    scrollbar:          true;
+}
+
+element {
+    padding:            10px 14px;
+}
+
+element selected {
+    background-color:   rgba(148, 226, 213, 18%);
+    text-color:         @teal;
+}

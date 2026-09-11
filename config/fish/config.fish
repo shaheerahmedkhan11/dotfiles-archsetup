@@ -58,7 +58,6 @@ alias .. 'cd ..'
 alias ... 'cd ../..'
 alias .... 'cd ../../..'
 alias ..... 'cd ../../../..'
-alias -- - 'cd -'
 
 # ── Aliases: Safety ───────────────────────────────────────
 alias rm 'rm -i'
@@ -67,8 +66,6 @@ alias mv 'mv -i'
 alias mkdir 'mkdir -pv'
 
 # ── Aliases: Network ──────────────────────────────────────
-alias ports 'ss -tulanp'
-alias myip 'curl -s ifconfig.me'
 alias localip 'ip -brief addr'
 
 # ── Aliases: Git ──────────────────────────────────────────

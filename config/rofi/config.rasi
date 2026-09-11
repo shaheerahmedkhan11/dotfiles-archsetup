@@ -1,0 +1,276 @@
+configuration {
+    modi: "drun,run,window,ssh,keys,filebrowser";
+    icon-theme: "Papirus-Dark";
+    show-icons: true;
+    terminal: "kitty";
+    drun-display-format: "{icon}  {name}";
+    location: 0;
+    center: true;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: " 󰀻  Apps";
+    display-run: " 󰌢  Run";
+    display-window: " 󰕰  Windows";
+    display-ssh: " 󰢹  SSH";
+    display-keys: " 󰌌  Keys";
+    display-filebrowser: " 󰉋  Files";
+    sidebar-mode: true;
+    click-to-exit: true;
+    keyboard-navigation: true;
+    scroll-method: 0;
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+}
+
+* {
+    font: "JetBrainsMono Nerd Font 12";
+
+    background:           rgba(17, 17, 27, 75%);
+    foreground:           rgba(205, 214, 244, 100%);
+
+    blue:                 rgba(137, 180, 250, 100%);
+    red:                  rgba(243, 139, 168, 100%);
+    green:                rgba(166, 227, 161, 100%);
+    yellow:               rgba(249, 226, 175, 100%);
+    mauve:                rgba(203, 166, 247, 100%);
+    peach:                rgba(250, 179, 135, 100%);
+    teal:                 rgba(148, 226, 213, 100%);
+    lavender:             rgba(180, 190, 254, 100%);
+
+    surface-0:            rgba(30, 30, 46, 100%);
+    surface-1:            rgba(24, 24, 37, 100%);
+    surface-2:            rgba(49, 50, 68, 100%);
+
+    border-glow:          rgba(137, 180, 250, 40%);
+    border-glow-hover:    rgba(137, 180, 250, 60%);
+    border-glow-active:   rgba(137, 180, 250, 80%);
+
+    text-muted:           rgba(108, 112, 134, 100%);
+
+    normal-background:    transparent;
+    normal-foreground:    @foreground;
+
+    selected-normal-background: rgba(137, 180, 250, 20%);
+    selected-normal-foreground: @blue;
+
+    active-background:    rgba(137, 180, 250, 14%);
+    active-foreground:    @blue;
+
+    urgent-background:    rgba(243, 139, 168, 18%);
+    urgent-foreground:    @red;
+
+    alternate-normal-background: rgba(137, 180, 250, 8%);
+    alternate-normal-foreground: @foreground;
+    alternate-active-background: rgba(137, 180, 250, 14%);
+    alternate-active-foreground: @blue;
+    alternate-urgent-background: rgba(243, 139, 168, 18%);
+    alternate-urgent-foreground: @red;
+
+    selected-active-background: @selected-normal-background;
+    selected-active-foreground: @blue;
+    selected-urgent-background: rgba(243, 139, 168, 32%);
+    selected-urgent-foreground: @red;
+
+    border-color:         @border-glow;
+    separatorcolor:       @surface-2;
+
+    spacing:              0;
+
+    lightbg:              rgba(238, 232, 213, 100%);
+    lightfg:              rgba(88, 104, 117, 100%);
+
+    background-color:     transparent;
+}
+
+window {
+    background-color: @background;
+    border:             2;
+    border-color:       @border-glow;
+    border-radius:      20px;
+    padding:            0;
+    width:              42%;
+    location:           center;
+    anchor:             center;
+}
+
+mainbox {
+    border:             0;
+    padding:            0;
+    margin:             0;
+    spacing:            0;
+    background-color:   transparent;
+}
+
+inputbar {
+    children:           [ prompt, entry ];
+    spacing:            0;
+    padding:            10px 12px 10px 10px;
+    margin:             10px 10px 6px 10px;
+    background-color:   @surface-1;
+    border-radius:      14px;
+    border:             1;
+    border-color:       @border-glow;
+}
+
+prompt {
+    spacing:            0;
+    text-color:         @surface-1;
+    padding:            6px 14px;
+    margin:             0 8px 0 0;
+    background-color:   @blue;
+    border-radius:      10px;
+}
+
+entry {
+    spacing:            0;
+    text-color:         @foreground;
+    padding:            6px 12px;
+    background-color:   transparent;
+    placeholder:        "Search...";
+    placeholder-color:  @text-muted;
+}
+
+mode-switcher {
+    spacing:            6px;
+    padding:            6px 14px;
+    margin:             0 10px 6px 10px;
+    background-color:   @surface-1;
+    border-radius:      12px;
+    border:             1;
+    border-color:       @border-glow;
+}
+
+button {
+    spacing:            4px;
+    text-color:         @text-muted;
+    padding:            6px 14px;
+    background-color:   transparent;
+    border-radius:      8px;
+    border:             0;
+    margin:             0;
+}
+
+button selected {
+    background-color:   rgba(137, 180, 250, 18%);
+    text-color:         @blue;
+}
+
+button active {
+    text-color:         @foreground;
+}
+
+listview {
+    fixed-height:       true;
+    lines:              7;
+    columns:            2;
+    spacing:            4px;
+    scrollbar:          true;
+    padding:            4px 6px 8px 6px;
+    margin:             0 10px 10px 10px;
+    background-color:   transparent;
+}
+
+element {
+    border:             0;
+    padding:            8px 10px;
+    border-radius:      10px;
+    background-color:   transparent;
+    text-color:         @foreground;
+}
+
+element-text {
+    background-color:   inherit;
+    text-color:         inherit;
+}
+
+element.normal.normal {
+    background-color:   @surface-1;
+    text-color:         @foreground;
+}
+
+element.normal.urgent {
+    background-color:   @urgent-background;
+    text-color:         @urgent-foreground;
+}
+
+element.normal.active {
+    background-color:   @active-background;
+    text-color:         @active-foreground;
+}
+
+element.selected.normal {
+    background-color:   transparent;
+    text-color:         @blue;
+}
+
+element.selected.urgent {
+    background-color:   transparent;
+    text-color:         @red;
+}
+
+element.selected.active {
+    background-color:   transparent;
+    text-color:         @blue;
+}
+
+element.alternate.normal {
+    background-color:   @surface-0;
+    text-color:         @foreground;
+}
+
+element.alternate.urgent {
+    background-color:   @urgent-background;
+    text-color:         @urgent-foreground;
+}
+
+element.alternate.active {
+    background-color:   @active-background;
+    text-color:         @active-foreground;
+}
+
+scrollbar {
+    width:              6px;
+    border:             0;
+    padding:            0;
+    margin:             2px 2px 2px 0;
+    border-radius:      3px;
+    background-color:   @surface-0;
+    handle-color:       rgba(88, 91, 112, 60%);
+    handle-width:       4px;
+}
+
+message {
+    padding:            6px 12px;
+    margin:             0 10px 8px 10px;
+    background-color:   @surface-1;
+    border-radius:      10px;
+    border:             1;
+    border-color:       @border-glow;
+}
+
+textbox {
+    text-color:         @foreground;
+    padding:            4px 8px;
+    background-color:   transparent;
+}
+
+case-indicator {
+    spacing:            0;
+    text-color:         @text-muted;
+}
+
+num-filtered-rows, num-rows, textbox-num-separator {
+    background-color:   transparent;
+    text-color:         @text-muted;
+}
+
+textbox-num-separator {
+    str:                "/";
+    padding:            0 2px;
+}
+
+textbox-prompt-colon {
+    expand:             false;
+    str:                "";
+}

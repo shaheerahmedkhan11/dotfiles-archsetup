@@ -1,0 +1,269 @@
+# ╔═══════════════════════════════════════════════════════════╗
+# ║  Starship Prompt — Catppuccin Mocha Powerline Glass     ║
+# ║  P10k-style angled separators · Feature-rich developer  ║
+# ╚═══════════════════════════════════════════════════════════╝
+
+format = """\
+[ $os ](fg:#11111b bg:#cba6f7 bold)[](fg:#cba6f7 bg:#f5e0dc)[ $username ](fg:#11111b bg:#f5e0dc bold)[](fg:#f5e0dc bg:#89b4fa)[ 󰉋 $directory ](fg:#11111b bg:#89b4fa bold)[](fg:#89b4fa bg:#f5c2e7)[ $git_branch$git_status$git_metrics$git_state ](fg:#11111b bg:#f5c2e7)[](fg:#f5c2e7 bg:#a6e3a1)[ $package$nodejs$rust$python$golang$java$dart$docker_context ](fg:#11111b bg:#a6e3a1)[](fg:#a6e3a1 bg:#94e2d5)[ $shell $shlvl $memory_usage ](fg:#11111b bg:#94e2d5)[](fg:#94e2d5 bg:#cba6f7)[  $time ](fg:#11111b bg:#cba6f7 bold)"""
+
+right_format = """\
+[ 󱀒 $cmd_duration ](fg:#11111b bg:#313244)[](fg:#313244 bg:#f9e2af)[ 󰈔 $jobs ](fg:#11111b bg:#f9e2af)[](fg:#f9e2af bg:#f38ba8)[ $status ](fg:#11111b bg:#f38ba8)"""
+
+palette = "catppuccin_mocha"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo  = "#f2cdcd"
+pink      = "#f5c2e7"
+mauve     = "#cba6f7"
+red       = "#f38ba8"
+maroon    = "#eba0ac"
+peach     = "#fab387"
+yellow    = "#f9e2af"
+green     = "#a6e3a1"
+teal      = "#94e2d5"
+sky       = "#89dceb"
+sapphire  = "#74c7ec"
+blue      = "#89b4fa"
+lavender  = "#b4befe"
+text      = "#cdd6f4"
+subtext1  = "#bac2de"
+subtext0  = "#a6adc8"
+overlay2  = "#9399b2"
+overlay1  = "#7f849c"
+overlay0  = "#6c7086"
+surface2  = "#585b70"
+surface1  = "#45475a"
+surface0  = "#313244"
+base      = "#1e1e2e"
+mantle    = "#181825"
+crust     = "#11111b"
+
+# ─── OS ───────────────────────────────────────────────────
+[os]
+disabled = false
+format = '$symbol'
+style = "bg:#cba6f7 fg:#11111b bold"
+
+[os.symbols]
+Arch = ""
+
+# ─── Username ─────────────────────────────────────────────
+[username]
+show_always = true
+style_user = "bg:#f5e0dc fg:#11111b bold"
+style_root = "bg:#f9e2af fg:#11111b bold"
+format = '$user'
+
+# ─── Hostname (SSH only) ──────────────────────────────────
+[hostname]
+ssh_only = true
+style = "bg:#74c7ec fg:#11111b bold"
+format = '@ $hostname'
+trim_at = "."
+
+# ─── Directory ────────────────────────────────────────────
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+style = "bg:#89b4fa fg:#11111b bold"
+read_only = " 🔒"
+
+[directory.substitutions]
+"Documents" = " 9 "
+"Downloads" = "  "
+"Music" = " a "
+"Pictures" = "  "
+"Developer" = " b "
+"AI History Vault" = " 4 "
+"AI-OS" = " e "
+".config" = " 4 "
+".local" = " 0 "
+"Projects" = "  "
+
+# ─── Git Branch ───────────────────────────────────────────
+[git_branch]
+disabled = false
+symbol = " "
+style = "bg:#f5c2e7 fg:#11111b bold"
+
+# ─── Git Status ───────────────────────────────────────────
+[git_status]
+disabled = false
+ahead = '⇡$count'
+behind = '⇣$count'
+diverged = '⇡$count⇣$count'
+up_to_date = ''
+style = "bg:#f5c2e7 fg:#11111b"
+
+# ─── Git Metrics ──────────────────────────────────────────
+[git_metrics]
+disabled = false
+added_style = "fg:#a6e3a1"
+deleted_style = "fg:#f38ba8"
+format = '[ +$added -$deleted ](fg:#11111b bg:#f5c2e7)'
+
+# ─── Git State ────────────────────────────────────────────
+[git_state]
+disabled = false
+style = "bg:#f5c2e7 fg:#11111b"
+format = '[\[$state $progress_current/$progress_total\]](fg:#11111b bg:#f5c2e7)'
+
+[git_commit]
+disabled = false
+style = "bg:#f5c2e7 fg:#11111b"
+format = '[ $hashtag ](fg:#11111b bg:#f5c2e7)'
+
+# ─── Package ──────────────────────────────────────────────
+[package]
+disabled = false
+symbol = " "
+style = "bg:#a6e3a1 fg:#11111b"
+
+# ─── Node.js ──────────────────────────────────────────────
+[nodejs]
+disabled = false
+symbol = " "
+detect_files = ["package.json", ".node-version", ".nvmrc", "tsconfig.json"]
+detect_extensions = []
+detect_folders = ["node_modules"]
+style = "bg:#a6e3a1 fg:#11111b"
+format = '[ $symbol($version) ](fg:#11111b bg:#a6e3a1)'
+
+# ─── Rust ─────────────────────────────────────────────────
+[rust]
+disabled = false
+symbol = " "
+detect_files = ["Cargo.toml", "Cargo.lock"]
+detect_extensions = []
+style = "bg:#a6e3a1 fg:#11111b"
+format = '[ $symbol($version) ](fg:#11111b bg:#a6e3a1)'
+
+# ─── Python ───────────────────────────────────────────────
+[python]
+disabled = false
+symbol = " "
+detect_files = ["requirements.txt", "pyproject.toml", "setup.py", "Pipfile", ".python-version"]
+detect_extensions = []
+style = "bg:#a6e3a1 fg:#11111b"
+format = '[ $symbol$version ](fg:#11111b bg:#a6e3a1)'
+
+# ─── Go ───────────────────────────────────────────────────
+[golang]
+disabled = false
+symbol = " "
+detect_files = ["go.mod", "go.sum"]
+detect_extensions = []
+style = "bg:#a6e3a1 fg:#11111b"
+format = '[ $symbol($version) ](fg:#11111b bg:#a6e3a1)'
+
+# ─── Java ─────────────────────────────────────────────────
+[java]
+disabled = false
+symbol = " "
+detect_files = ["pom.xml", "build.gradle", "build.gradle.kts"]
+detect_extensions = []
+style = "bg:#a6e3a1 fg:#11111b"
+format = '[ $symbol($version) ](fg:#11111b bg:#a6e3a1)'
+
+# ─── Dart/Flutter ─────────────────────────────────────────
+[dart]
+disabled = false
+symbol = " "
+detect_files = ["pubspec.yaml"]
+detect_extensions = []
+style = "bg:#a6e3a1 fg:#11111b"
+format = '[ $symbol($version) ](fg:#11111b bg:#a6e3a1)'
+
+# ─── Docker ───────────────────────────────────────────────
+[docker_context]
+disabled = false
+symbol = "  "
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+style = "bg:#a6e3a1 fg:#11111b"
+format = '[ $symbol$context ](fg:#11111b bg:#a6e3a1)'
+
+# ─── Shell ────────────────────────────────────────────────
+[shell]
+disabled = false
+bash_indicator = ' bash'
+zsh_indicator = ' zsh'
+fish_indicator = ' fish'
+powershell_indicator = ' pwsh'
+unknown_indicator = '?'
+style = "bg:#94e2d5 fg:#11111b"
+format = '[ 󱀰 $indicator ](fg:#11111b bg:#94e2d5)'
+
+# ─── Shell Level ──────────────────────────────────────────
+[shlvl]
+disabled = false
+threshold = 2
+style = "bg:#94e2d5 fg:#11111b"
+format = 'l$shlvl'
+
+# ─── Memory Usage ─────────────────────────────────────────
+[memory_usage]
+disabled = false
+symbol = "󰍛 "
+threshold = 0
+style = "bg:#94e2d5 fg:#11111b"
+format = '[ $symbol$ram ](fg:#11111b bg:#94e2d5)'
+
+# ─── Time ─────────────────────────────────────────────────
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#cba6f7 fg:#11111b"
+
+# ─── Character (input prompt) ─────────────────────────────
+[character]
+success_symbol = '[❯](bold ##a6e3a1)'
+error_symbol = '[✗ ](bold ##f38ba8)[❯](bold ##f38ba8)'
+
+# ─── Command Duration (>2s) ───────────────────────────────
+[cmd_duration]
+disabled = false
+min_time = 2_000
+style = "bg:#313244 fg:#f9e2af"
+format = '󱀒 $duration '
+
+# ─── Jobs ─────────────────────────────────────────────────
+[jobs]
+disabled = false
+symbol = "󰈔"
+style = "bg:#f9e2af fg:#11111b"
+format = '$symbol $number '
+
+# ─── Status ───────────────────────────────────────────────
+[status]
+symbol = '✗'
+success_symbol = ''
+disabled = false
+style = "bg:#f38ba8 fg:#11111b"
+format = '$symbol '
+
+# ─── Fill ─────────────────────────────────────────────────
+[fill]
+symbol = " "
+
+# ─── Disabled Modules ─────────────────────────────────────
+[localip]
+disabled = true
+[sudo]
+disabled = true
+[battery]
+disabled = true
+[container]
+disabled = true
+[kubernetes]
+disabled = true
+[terraform]
+disabled = true
+[nix_shell]
+disabled = true
+[conda]
+disabled = true
+[spack]
+disabled = true
+[azure]
+disabled = true

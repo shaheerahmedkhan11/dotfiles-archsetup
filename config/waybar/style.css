@@ -1,0 +1,456 @@
+/* ╔═══════════════════════════════════════════════════════════╗
+   ║  Waybar — Cyberpunk Glassmorphic Theme                   ║
+   ║  GTK3 native: no box-shadow/text-shadow/backdrop-filter  ║
+   ╚═══════════════════════════════════════════════════════════╝ */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NFM", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: rgba(17, 17, 27, 0.95);
+    color: #cdd6f4;
+    border-radius: 10px;
+    border: 1px solid rgba(137, 180, 250, 0.4);
+    padding: 8px 10px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Separator spacing between module groups
+   ═══════════════════════════════════════════════════════════ */
+#group-hardware,
+#group-controls {
+    margin-left: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Base Module Container — Glassmorphic
+   ═══════════════════════════════════════════════════════════ */
+#custom-launcher,
+#workspaces,
+#custom-cyberhub,
+#window,
+#mpris,
+#clock,
+#custom-weather,
+#group-hardware,
+#group-controls,
+#custom-netspeed,
+#tray,
+#custom-updates,
+#privacy,
+#idle_inhibitor,
+#custom-notifications,
+#custom-power {
+    background: rgba(30, 30, 46, 0.75);
+    color: #cdd6f4;
+    padding: 1px 6px;
+    margin: 2px 1px;
+    border-radius: 10px;
+    border: 1px solid rgba(137, 180, 250, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#custom-launcher:hover,
+#custom-cyberhub:hover,
+#clock:hover,
+#custom-weather:hover,
+#group-hardware:hover,
+#group-controls:hover,
+#custom-netspeed:hover,
+#custom-updates:hover,
+#privacy:hover,
+#idle_inhibitor:hover,
+#custom-notifications:hover,
+#custom-power:hover {
+    background: rgba(49, 50, 68, 0.9);
+    border: 1px solid rgba(203, 166, 247, 0.5);
+    padding: 1px 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Launcher
+   ═══════════════════════════════════════════════════════════ */
+#custom-launcher {
+    color: #89b4fa;
+    font-size: 14px;
+    padding: 1px 10px;
+    background: rgba(137, 180, 250, 0.18);
+    border: 1px solid rgba(137, 180, 250, 0.35);
+}
+
+#custom-launcher:hover {
+    color: #b4befe;
+    background: rgba(137, 180, 250, 0.35);
+    border: 1px solid rgba(137, 180, 250, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Workspaces
+   ═══════════════════════════════════════════════════════════ */
+#workspaces {
+    padding: 0 2px;
+}
+
+#workspaces button {
+    padding: 1px 5px;
+    color: #6c7086;
+    border-radius: 6px;
+    margin: 1px 1px;
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+    background: rgba(69, 71, 90, 0.5);
+}
+
+#workspaces button.active {
+    color: #1e1e2e;
+    background: rgba(137, 180, 250, 0.9);
+    font-weight: 800;
+    padding: 1px 8px;
+    border: 1px solid rgba(137, 180, 250, 0.6);
+}
+
+#workspaces button.urgent {
+    color: #1e1e2e;
+    background: rgba(243, 139, 168, 0.9);
+    animation: blink 0.8s infinite alternate;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Cyber-Hub AI Pill
+   ═══════════════════════════════════════════════════════════ */
+#custom-cyberhub {
+    color: #cba6f7;
+    background: rgba(203, 166, 247, 0.15);
+    border: 1px solid rgba(203, 166, 247, 0.3);
+}
+
+#custom-cyberhub.online {
+    color: #a6e3a1;
+    border: 1px solid rgba(166, 227, 161, 0.3);
+}
+
+#custom-cyberhub.offline {
+    color: #f38ba8;
+    border: 1px solid rgba(243, 139, 168, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Window
+   ═══════════════════════════════════════════════════════════ */
+#window {
+    color: #a6adc8;
+    font-style: italic;
+    background: rgba(24, 24, 37, 0.5);
+    border: 1px solid rgba(108, 112, 134, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MPRIS Media
+   ═══════════════════════════════════════════════════════════ */
+#mpris {
+    color: #a6e3a1;
+    border: 1px solid rgba(166, 227, 161, 0.25);
+}
+
+#mpris.paused {
+    color: #6c7086;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Clock
+   ═══════════════════════════════════════════════════════════ */
+#clock {
+    color: #cba6f7;
+    font-weight: 800;
+    background: rgba(203, 166, 247, 0.18);
+    border: 1px solid rgba(203, 166, 247, 0.35);
+    padding: 1px 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Weather
+   ═══════════════════════════════════════════════════════════ */
+#custom-weather {
+    color: #f9e2af;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Hardware Group
+   ═══════════════════════════════════════════════════════════ */
+#group-hardware {
+    padding: 0 3px;
+}
+
+#cpu {
+    color: #89dceb;
+    padding: 0 3px;
+}
+
+#memory {
+    color: #fab387;
+    padding: 0 3px;
+}
+
+#temperature {
+    color: #94e2d5;
+    padding: 0 3px;
+}
+
+#temperature.critical {
+    color: #f38ba8;
+    animation: temp-blink 0.5s infinite alternate;
+}
+
+#disk {
+    color: #b4befe;
+    padding: 0 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Controls Group
+   ═══════════════════════════════════════════════════════════ */
+#group-controls {
+    padding: 0 3px;
+}
+
+#backlight {
+    color: #f9e2af;
+    padding: 0 3px;
+}
+
+#pulseaudio {
+    color: #89b4fa;
+    padding: 0 3px;
+}
+
+#pulseaudio.muted {
+    color: #f38ba8;
+}
+
+#pulseaudio-microphone {
+    color: #a6e3a1;
+    padding: 0 3px;
+}
+
+#pulseaudio-microphone.source-muted {
+    color: #f38ba8;
+}
+
+#network {
+    color: #a6e3a1;
+    padding: 0 3px;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+#custom-battery {
+    color: #a6e3a1;
+    padding: 0 3px;
+}
+
+#custom-battery.charging {
+    color: #94e2d5;
+}
+
+#custom-battery.warning {
+    color: #fab387;
+}
+
+#custom-battery.critical {
+    color: #f38ba8;
+    animation: blink 0.7s infinite alternate;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   System Tray
+   ═══════════════════════════════════════════════════════════ */
+#tray {
+    padding: 0 4px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f38ba8;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Notifications
+   ═══════════════════════════════════════════════════════════ */
+#custom-notifications {
+    color: #b4befe;
+}
+
+#custom-notifications.dnd {
+    color: #f38ba8;
+}
+
+#custom-notifications.unread {
+    color: #fab387;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Power
+   ═══════════════════════════════════════════════════════════ */
+#custom-power {
+    color: #f38ba8;
+    font-size: 13px;
+    padding: 1px 8px;
+    background: rgba(243, 139, 168, 0.12);
+    border: 1px solid rgba(243, 139, 168, 0.35);
+}
+
+#custom-power:hover {
+    color: #1e1e2e;
+    background: rgba(243, 139, 168, 0.85);
+    border: 1px solid rgba(243, 139, 168, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Animations
+   ═══════════════════════════════════════════════════════════ */
+@keyframes blink {
+    to {
+        background-color: rgba(243, 139, 168, 0.15);
+        color: #f38ba8;
+    }
+}
+
+@keyframes temp-blink {
+    to {
+        background-color: rgba(243, 139, 168, 0.2);
+    }
+}
+
+@keyframes pulse-updates {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.7;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Network Speed
+   ═══════════════════════════════════════════════════════════ */
+#custom-netspeed {
+    color: #94e2d5;
+    background: rgba(148, 226, 213, 0.12);
+    border: 1px solid rgba(148, 226, 213, 0.25);
+    padding: 1px 6px;
+}
+
+#custom-netspeed:hover {
+    background: rgba(148, 226, 213, 0.25);
+    border: 1px solid rgba(148, 226, 213, 0.45);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Updates
+   ═══════════════════════════════════════════════════════════ */
+#custom-updates {
+    color: #a6e3a1;
+    background: rgba(166, 227, 161, 0.12);
+    border: 1px solid rgba(166, 227, 161, 0.25);
+    padding: 1px 6px;
+}
+
+#custom-updates.updates {
+    color: #f9e2af;
+    background: rgba(249, 226, 175, 0.15);
+    border: 1px solid rgba(249, 226, 175, 0.35);
+    animation: pulse-updates 2s ease-in-out infinite;
+}
+
+#custom-updates.updated {
+    color: #a6e3a1;
+}
+
+#custom-updates:hover {
+    background: rgba(166, 227, 161, 0.25);
+    border: 1px solid rgba(166, 227, 161, 0.45);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Idle Inhibitor
+   ═══════════════════════════════════════════════════════════ */
+#idle_inhibitor {
+    color: #6c7086;
+    padding: 1px 6px;
+}
+
+#idle_inhibitor.active {
+    color: #a6e3a1;
+    background: rgba(166, 227, 161, 0.15);
+    border: 1px solid rgba(166, 227, 161, 0.35);
+}
+
+#idle_inhibitor.paused {
+    color: #6c7086;
+}
+
+#idle_inhibitor:hover {
+    background: rgba(108, 112, 134, 0.25);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Privacy
+   ═══════════════════════════════════════════════════════════ */
+#privacy {
+    padding: 1px 4px;
+    background: rgba(30, 30, 46, 0.5);
+    border: 1px solid rgba(108, 112, 134, 0.15);
+}
+
+#privacy-screen-support {
+    color: #a6e3a1;
+}
+
+#privacy-screen-support.active {
+    color: #a6e3a1;
+    background: rgba(166, 227, 161, 0.15);
+    border: 1px solid rgba(166, 227, 161, 0.3);
+}
+
+#privacy-microphone {
+    color: #f9e2af;
+}
+
+#privacy-microphone.active {
+    color: #f9e2af;
+    background: rgba(249, 226, 175, 0.15);
+    border: 1px solid rgba(249, 226, 175, 0.3);
+}
+
+#privacy-camera {
+    color: #89dceb;
+}
+
+#privacy-camera.active {
+    color: #89dceb;
+    background: rgba(137, 220, 235, 0.15);
+    border: 1px solid rgba(137, 220, 235, 0.3);
+}

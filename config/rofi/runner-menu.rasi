@@ -1,0 +1,36 @@
+@import "config.rasi"
+
+window {
+    width:              48%;
+    border:             2px solid;
+    border-color:       rgba(137, 180, 250, 60%);
+    border-radius:      14px;
+}
+
+inputbar {
+    children:           [ prompt, entry ];
+}
+
+prompt {
+    padding:            8px 16px;
+    background-color:   @blue;
+    text-color:         @surface-1;
+    font:               "JetBrainsMono Nerd Font Bold 12";
+}
+
+listview {
+    lines:              10;
+    columns:            1;
+    fixed-height:       false;
+    scrollbar:          true;
+}
+
+element {
+    padding:            10px 16px;
+    border-radius:      8px;
+}
+
+element selected {
+    background-color:   rgba(137, 180, 250, 22%);
+    text-color:         @blue;
+}

@@ -1,0 +1,9 @@
+brave-bin
+catppuccin-cursors-mocha
+catppuccin-gtk-theme-mocha
+google-chrome
+kvantum-theme-catppuccin-git
+paru
+paru-debug
+yay-bin
+yay-bin-debug

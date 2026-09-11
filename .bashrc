@@ -51,8 +51,6 @@ alias mv='mv -i'
 alias mkdir='mkdir -pv'
 
 # ── Network ───────────────────────────────────────────────
-alias ports='ss -tulanp'
-alias myip='curl -s ifconfig.me'
 alias localip='ip -brief addr'
 
 # ── Git ───────────────────────────────────────────────────

@@ -1,0 +1,313 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "margin-top": 4,
+    "margin-left": 4,
+    "margin-right": 4,
+    "spacing": 4,
+
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "custom/cyberhub",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "mpris",
+        "clock",
+        "custom/weather"
+    ],
+    "modules-right": [
+        "group/hardware",
+        "group/controls",
+        "custom/netspeed",
+        "tray",
+        "privacy",
+        "custom/updates",
+        "idle_inhibitor",
+        "custom/notifications",
+        "custom/power"
+    ],
+
+    "custom/launcher": {
+        "format": "󰣇",
+        "tooltip": true,
+        "tooltip-format": "Application Launcher\nLeft-Click: App Menu (Rofi)\nRight-Click: Terminal (Kitty)",
+        "on-click": "rofi -show drun",
+        "on-click-right": "kitty"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "format-icons": {
+            "1": "",
+            "2": "󰈹",
+            "3": "󰅩",
+            "4": "󰉋",
+            "5": "󰓇",
+            "6": "󰭹",
+            "7": "󰊴",
+            "8": "󱔗",
+            "9": "󰚩",
+            "10": "",
+            "urgent": "󰀦",
+            "default": ""
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "all-outputs": true,
+        "active-only": false
+    },
+
+    "custom/cyberhub": {
+        "exec": "/home/shaheer/.config/waybar/scripts/cyberhub-status.sh",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "xdg-open http://127.0.0.1:7777",
+        "on-click-right": "obsidian",
+        "max-length": 15
+    },
+
+    "hyprland/window": {
+        "format": "󰖯 {title}",
+        "max-length": 25,
+        "separate-outputs": true,
+        "rewrite": {
+            "^$": "Desktop",
+            "kitty(.*)": "󰄛 Kitty",
+            "Alacritty(.*)": "󰄛 Alacritty",
+            "(.*) - Google Chrome": "󰊯 $1",
+            "(.*) - Firefox": "󰈹 $1",
+            "(.*) - Brave": "󰈹 $1",
+            "(.*) - Visual Studio Code": "󰅩 $1",
+            "(.*) - Obsidian": "󱔗 Obsidian - $1",
+            "Thunar": "󰉋 Thunar"
+        }
+    },
+
+    "mpris": {
+        "format": "{player_icon} {title} - {artist}",
+        "format-paused": "{status_icon} <i>{title}</i>",
+        "player-icons": {
+            "default": "󰐊",
+            "spotify": "󰓇",
+            "firefox": "󰈹",
+            "brave": "󰈹",
+            "chrome": "󰊯"
+        },
+        "status-icons": {
+            "paused": "󰏤"
+        },
+        "max-length": 20,
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+
+    "clock": {
+        "format": "󰥔 {:%I:%M %p 󰃭 %a %d}",
+        "format-alt": "󰥔 {:%H:%M:%S  󰃭 %Y-%m-%d}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#cba6f7'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks": "<span color='#94e2d5'><b>W{}</b></span>",
+                "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+                "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode"
+        }
+    },
+
+    "custom/weather": {
+        "exec": "/home/shaheer/.config/waybar/scripts/weather.sh",
+        "return-type": "json",
+        "interval": 900,
+        "on-click": "/home/shaheer/.config/waybar/scripts/weather.sh"
+    },
+
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory",
+            "temperature",
+            "disk"
+        ]
+    },
+
+    "group/controls": {
+        "orientation": "horizontal",
+        "modules": [
+            "backlight",
+            "pulseaudio",
+            "pulseaudio#microphone",
+            "network",
+            "custom/battery"
+        ]
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": "󰻠 {usage}%",
+        "tooltip": true,
+        "on-click": "kitty -e btop"
+    },
+
+    "memory": {
+        "interval": 2,
+        "format": "󰍛 {percentage}%",
+        "format-alt": "󰍛 {used:0.1f}G/{total:0.1f}G",
+        "tooltip-format": "RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)\nSwap: {swapUsed:0.1f}GiB / {swapTotal:0.1f}GiB",
+        "on-click": "kitty -e btop"
+    },
+
+    "temperature": {
+        "thermal-zone": 0,
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "tooltip": true
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "tooltip-format": "Root Storage:\nUsed: {used} / {total} ({percentage_used}%)\nFree: {free} ({percentage_free}%)"
+    },
+
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl -e4 -n2 set 5%+",
+        "on-scroll-down": "brightnessctl -e4 -n2 set 5%-",
+        "tooltip-format": "Brightness: {percent}%"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋎",
+            "headset": "󰋎",
+            "phone": "󰏲",
+            "portable": "󰏲",
+            "car": "󰄋",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭 Muted",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 2%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 2%-"
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "format-linked": "󰈀 (No IP)",
+        "format-disconnected": "󰤮 Offline",
+        "format-alt": "󰩟 {ipaddr}/{cidr}",
+        "tooltip-format": "Interface: {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}\nSignal: {signalStrength}%\nFrequency: {frequency}MHz",
+        "on-click": "nm-connection-editor",
+        "max-length": 18
+    },
+
+    "custom/battery": {
+        "exec": "/home/shaheer/.config/waybar/scripts/battery.sh",
+        "return-type": "json",
+        "interval": 30,
+        "on-click": "upower -i /org/freedesktop/UPower/devices/battery_BAT0"
+    },
+
+    "custom/netspeed": {
+        "exec": "/home/shaheer/.config/waybar/scripts/netspeed.sh",
+        "return-type": "json",
+        "interval": 2,
+        "tooltip": true
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 6
+    },
+
+    "custom/updates": {
+        "exec": "/home/shaheer/.config/waybar/scripts/updates.sh",
+        "return-type": "json",
+        "interval": 1800,
+        "on-click": "kitty -e yay -Syu",
+        "tooltip": true
+    },
+
+    "idle_inhibitor": {
+        "format": "󰅶",
+        "format-active": "󰾪 Active",
+        "format-paused": "󰾲 Paused",
+        "tooltip": true,
+        "tooltip-format": "Idle Inhibitor: {state}\nClick to {action}",
+        "start-activating-text": "󰅶 Activating...",
+        "stop-activating-text": "󰾲 Pausing..."
+    },
+
+    "custom/notifications": {
+        "exec": "/home/shaheer/.config/waybar/scripts/notifications.sh",
+        "return-type": "json",
+        "interval": 2,
+        "on-click": "dunstctl history-pop",
+        "on-click-middle": "dunstctl set-paused toggle",
+        "on-click-right": "dunstctl close-all"
+    },
+
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip": true,
+        "tooltip-format": "Power Menu\nClick for Session & Power options",
+        "on-click": "/home/shaheer/.config/waybar/scripts/power-menu.sh"
+    },
+
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 14,
+        "transition-duration": 250,
+        "modules": {
+            "privacy-screen-support": {
+                "state": {
+                    "off": "󰽏",
+                    "on": "󰽓"
+                }
+            },
+            "privacy-microphone": {
+                "state": {
+                    "off": "󰍭",
+                    "on": "󰍬"
+                }
+            },
+            "privacy-camera": {
+                "state": {
+                    "off": "󰄾",
+                    "on": "󰅔"
+                }
+            }
+        }
+    }
+}

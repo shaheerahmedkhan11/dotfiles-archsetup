@@ -1,19 +1,20 @@
-# Secrets & credentials
-.git-credentials
-.ssh/
-*.pem
-*.key
-
-# Cache & runtime
-.cache/
-node_modules/
-*.log
-
-# OS junk
+# OS
 .DS_Store
 Thumbs.db
 
-# Editors temp
-*~
+# Editor
 *.swp
 *.swo
+*~
+.vscode/settings.json
+
+# Node
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+*.log

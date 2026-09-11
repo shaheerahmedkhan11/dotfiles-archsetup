@@ -26,7 +26,7 @@ configuration {
 * {
     font: "JetBrainsMono Nerd Font 12";
 
-    background:           rgba(11, 11, 20, 82%);
+    background:           rgba(11, 11, 20, 88%);
     foreground:           rgba(205, 214, 244, 100%);
 
     blue:                 rgba(137, 180, 250, 100%);

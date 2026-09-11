@@ -2,7 +2,24 @@
 
 Arch Linux + Hyprland dotfiles — Catppuccin Mocha Glassmorphic theme.
 
-Blazing fast i7-8550U / 32GB RAM / SATA SSD setup with full system tuning.
+One command to set up a blazing fast Arch system from bare metal.
+
+## Quick Start
+
+```bash
+git clone https://github.com/shaheerahmedkhan11/dotfiles-archsetup.git ~/dotfiles-archsetup
+cd ~/dotfiles-archsetup
+./install.sh
+```
+
+The interactive installer lets you pick exactly what to install:
+- **Everything** — Full setup in one go
+- **Desktop** — Hyprland + Waybar + Rofi + Dunst
+- **Terminals** — Kitty + Alacritty + Neovim + Tmux
+- **Shell** — Zsh + Fish + Starship + Oh My Posh
+- **Dev Tools** — Git + Lazygit + Bat + Fastfetch
+- **Apps** — Obsidian + Kvantum + GTK themes
+- **System Tuning** — Sysctl + Cpupower + Intel ucode
 
 ## What's Included
 
@@ -10,45 +27,47 @@ Blazing fast i7-8550U / 32GB RAM / SATA SSD setup with full system tuning.
 | App | Config |
 |-----|--------|
 | Hyprland | `config/hypr/` — WM, lock, wallpaper, scripts |
-| Waybar | `config/waybar/` — Glassmorphic top bar with custom scripts |
-| Rofi | `config/rofi/` — App launcher, power menu, wifi, bluetooth, etc. |
+| Waybar | `config/waybar/` — Glassmorphic top bar with 7 custom scripts |
+| Rofi | `config/rofi/` — 9 menu themes (wifi, bluetooth, power, etc.) |
 | Dunst | `config/dunst/` — Notifications |
-| Kitty | `config/kitty/` — Terminal |
-| Alacritty | `config/alacritty/` — Terminal |
 
-### Dev Tools
+### Terminal
 | App | Config |
 |-----|--------|
+| Kitty | `config/kitty/` — Catppuccin glassmorphic |
+| Alacritty | `config/alacritty/` |
 | Neovim | `config/nvim/` — LazyVim setup |
 | Tmux | `.tmux.conf` — Status bar + keybindings |
-| Lazygit | `config/lazygit/` |
-| Git | `.gitconfig` — Catppuccin delta theme + aliases |
-| Bat | `config/bat/` |
 
 ### Shell
 | App | Config |
 |-----|--------|
 | Zsh | `.zshrc` |
-| Bash | `.bashrc` |
 | Fish | `config/fish/` |
-| Starship | `config/starship/` — Catppuccin powerline prompt |
+| Starship | `config/starship/` — Catppuccin powerline |
 | Oh My Posh | `config/oh-my-posh/` |
+| Tools | zoxide, fzf, fd, bat, eza |
 
-### System
+### Dev Tools
 | App | Config |
 |-----|--------|
-| Sysctl | `system/sysctl.d/` — VM + network tuning |
+| Git | `.gitconfig` — Catppuccin delta + aliases |
+| Lazygit | `config/lazygit/` |
+| Bat | `config/bat/` |
+| Fastfetch | `config/fastfetch/` — Catppuccin ASCII |
+
+### System Tuning
+| Component | Config |
+|-----------|--------|
+| Sysctl | `system/sysctl.d/` — swappiness=180, BBR, zram optimized |
 | Cpupower | `system/cpupower/` — Performance governor |
-| Visor | `system/visor/` — Bootloader config |
-| Environment | `config/environment.d/` — GTK/Qt/Hypr vars |
+| Bootloader | `system/visor/` — Intel microcode in Visor |
+| Services | ananicy, earlyoom, irqbalance, thermald |
 
-### Apps
-| App | Config |
-|-----|--------|
-| Fastfetch | `config/fastfetch/` — Catppuccin system info |
-| Kvantum | `config/Kvantum/` — Qt theme |
-| GTK | `config/gtk-3.0/`, `config/gtk-4.0/` |
-| Obsidian | `config/obsidian/` |
+### Packages
+- 135+ official packages
+- 9 AUR packages
+- Full list in `packages/`
 
 ## System Specs Tuned For
 
@@ -59,48 +78,17 @@ Blazing fast i7-8550U / 32GB RAM / SATA SSD setup with full system tuning.
 - **GPU**: Intel UHD Graphics 620
 - **Bootloader**: Visor 1.5.4
 
-## Install
+## Post-Install
 
 ```bash
-git clone git@github.com:shaheerahmedkhan11/dotfiles-archsetup.git ~/dotfiles-archsetup
-cd ~/dotfiles-archsetup
-chmod +x install.sh
-./install.sh
+# Reboot for microcode + sysctl + governor
+sudo reboot
+
+# Verify
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor  # performance
+sysctl vm.swappiness                                         # 180
+grep intel-ucode /boot/EFI/visor/boot.conf                   # intel-ucode.img
 ```
-
-The installer:
-1. Installs all packages from `packages/`
-2. Links all dotfiles (backs up existing configs)
-3. Applies system tuning (sysctl, cpupower, intel-ucode)
-4. Configures Visor bootloader
-
-Reboot after install for full effect.
-
-## Manual Steps
-
-After install, verify these:
-
-```bash
-# Check CPU governor
-cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-# Should show: performance
-
-# Check sysctl
-sysctl vm.swappiness
-# Should show: 180
-
-# Check intel-ucode in Visor
-grep intel-ucode /boot/EFI/visor/boot.conf
-```
-
-## Quick Theme Switch
-
-All configs use Catppuccin Mocha. To switch colorscheme:
-1. Change colors in `config/kitty/kitty.conf`, `config/alacritty/alacritty.toml`
-2. Update `config/waybar/style.css` (Catppuccin color variables at top)
-3. Update `config/rofi/config.rasi` color definitions
-4. Update `config/dunst/dunstrc` frame_color
-5. Update `config/environment.d/catppuccin.conf` GTK_THEME
 
 ## Cyberpunk Hub
 

@@ -61,7 +61,6 @@ hl.config({
 
     decoration = {
         rounding       = 14,
-        rounding_power = 2,
 
         active_opacity    = 0.92,
         inactive_opacity  = 0.82,
@@ -89,9 +88,6 @@ hl.config({
             popups         = true,
             popups_ignorealpha = 0.15,
         },
-
-        dim_inactive     = true,
-        dim_strength     = 0.15,
     },
 
     animations = {
@@ -143,7 +139,6 @@ hl.config({
     dwindle = {
         preserve_split = true,
         force_split    = 2,
-        pseudotile     = true,
     },
 })
 
@@ -163,7 +158,6 @@ hl.config({
         force_default_wallpaper    = 0,
         disable_hyprland_logo      = true,
         disable_splash_rendering   = true,
-        new_window_takes_over_fullscreen = 2,
     },
 })
 

@@ -1,0 +1,443 @@
+/* ╔═══════════════════════════════════════════════════════════╗
+   ║  GTK3 — Catppuccin Mocha Glassmorphic Overrides          ║
+   ╚═══════════════════════════════════════════════════════════╝ */
+
+@define-color bg_color #1e1e2e;
+@define-color fg_color #cdd6f4;
+@define-color selected_bg_color #89b4fa;
+@define-color selected_fg_color #1e1e2e;
+@define-color tooltip_bg_color #313244;
+@define-color tooltip_fg_color #cdd6f4;
+@define-color link_color #89b4fa;
+@define-color visited_link_color #cba6f7;
+@define-color error_color #f38ba8;
+@define-color warning_color #fab387;
+@define-color success_color #a6e3a1;
+
+/* ── Windows ────────────────────────────────────────────── */
+window,
+dialog {
+    background-color: alpha(@bg_color, 0.92);
+    border-radius: 14px;
+}
+
+decoration {
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    border: 1px solid alpha(#89b4fa, 0.15);
+}
+
+decoration:backdrop {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    border: 1px solid alpha(#45475a, 0.2);
+}
+
+/* ── Headerbar ──────────────────────────────────────────── */
+headerbar,
+.titlebar {
+    background: alpha(@bg_color, 0.85);
+    border-bottom: 1px solid alpha(#89b4fa, 0.1);
+    border-radius: 14px 14px 0 0;
+    padding: 4px 8px;
+    min-height: 42px;
+}
+
+headerbar:hover,
+.titlebar:hover {
+    background: alpha(@bg_color, 0.88);
+}
+
+/* ── Buttons ────────────────────────────────────────────── */
+button {
+    background: alpha(#313244, 0.8);
+    color: @fg_color;
+    border-radius: 10px;
+    border: 1px solid alpha(#45475a, 0.4);
+    padding: 5px 12px;
+    min-height: 28px;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: alpha(#45475a, 0.9);
+    border-color: alpha(#89b4fa, 0.4);
+}
+
+button:active,
+button:checked {
+    background: alpha(#89b4fa, 0.25);
+    border-color: alpha(#89b4fa, 0.5);
+    color: #89b4fa;
+}
+
+button.suggested-action {
+    background: alpha(#a6e3a1, 0.2);
+    border-color: alpha(#a6e3a1, 0.4);
+    color: #a6e3a1;
+}
+
+button.suggested-action:hover {
+    background: alpha(#a6e3a1, 0.35);
+    border-color: alpha(#a6e3a1, 0.6);
+}
+
+button.destructive-action {
+    background: alpha(#f38ba8, 0.2);
+    border-color: alpha(#f38ba8, 0.4);
+    color: #f38ba8;
+}
+
+button.destructive-action:hover {
+    background: alpha(#f38ba8, 0.35);
+    border-color: alpha(#f38ba8, 0.6);
+}
+
+/* ── Entry / Input ──────────────────────────────────────── */
+entry {
+    background: alpha(#181825, 0.9);
+    color: @fg_color;
+    border-radius: 10px;
+    border: 1px solid alpha(#45475a, 0.5);
+    padding: 6px 12px;
+    min-height: 28px;
+    caret-color: #89b4fa;
+    transition: all 0.2s ease;
+}
+
+entry:focus {
+    border-color: alpha(#89b4fa, 0.6);
+    box-shadow: 0 0 0 2px alpha(#89b4fa, 0.15);
+}
+
+entry selection {
+    background: alpha(#89b4fa, 0.35);
+    color: @fg_color;
+}
+
+/* ── Labels ─────────────────────────────────────────────── */
+label {
+    color: @fg_color;
+}
+
+label.dim-label {
+    color: alpha(@fg_color, 0.6);
+}
+
+/* ── Lists & Rows ───────────────────────────────────────── */
+list,
+listview,
+treeview {
+    background: transparent;
+}
+
+row {
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+
+row:hover {
+    background: alpha(#89b4fa, 0.08);
+}
+
+row:selected {
+    background: alpha(#89b4fa, 0.15);
+    color: #89b4fa;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+scrollbar {
+    background: transparent;
+    border-radius: 10px;
+}
+
+scrollbar slider {
+    background: alpha(#585b70, 0.5);
+    border-radius: 10px;
+    min-width: 6px;
+    min-height: 40px;
+    margin: 3px;
+    transition: all 0.2s ease;
+}
+
+scrollbar slider:hover {
+    background: alpha(#89b4fa, 0.5);
+    min-width: 8px;
+}
+
+/* ── Tooltip ────────────────────────────────────────────── */
+tooltip {
+    background: alpha(#11111b, 0.92);
+    border-radius: 12px;
+    border: 1px solid alpha(#89b4fa, 0.2);
+    padding: 6px 10px;
+}
+
+tooltip label {
+    color: @fg_color;
+    font-size: 12px;
+}
+
+/* ── Switch ─────────────────────────────────────────────── */
+switch {
+    background: alpha(#313244, 0.8);
+    border-radius: 16px;
+    border: 1px solid alpha(#45475a, 0.5);
+    min-width: 48px;
+    min-height: 26px;
+    transition: all 0.25s ease;
+}
+
+switch:checked {
+    background: alpha(#89b4fa, 0.3);
+    border-color: alpha(#89b4fa, 0.5);
+}
+
+switch slider {
+    background: #cdd6f4;
+    border-radius: 50%;
+    min-width: 20px;
+    min-height: 20px;
+    margin: 2px;
+    transition: all 0.25s ease;
+}
+
+switch:checked slider {
+    background: #89b4fa;
+}
+
+/* ── Scale / Slider ─────────────────────────────────────── */
+scale {
+    padding: 8px 0;
+}
+
+scale trough {
+    background: alpha(#313244, 0.8);
+    border-radius: 6px;
+    min-height: 6px;
+}
+
+scale highlight {
+    background: alpha(#89b4fa, 0.7);
+    border-radius: 6px;
+    min-height: 6px;
+}
+
+scale slider {
+    background: #89b4fa;
+    border-radius: 50%;
+    min-width: 18px;
+    min-height: 18px;
+    border: 2px solid #1e1e2e;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.15s ease;
+}
+
+scale slider:hover {
+    background: #b4befe;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+/* ── Spinbutton ─────────────────────────────────────────── */
+spinbutton {
+    background: alpha(#181825, 0.9);
+    border-radius: 10px;
+    border: 1px solid alpha(#45475a, 0.5);
+}
+
+spinbutton button {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    min-width: 28px;
+    min-height: 28px;
+}
+
+spinbutton button:hover {
+    background: alpha(#89b4fa, 0.15);
+}
+
+/* ── Notebook (Tabs) ────────────────────────────────────── */
+notebook header {
+    background: alpha(#181825, 0.6);
+    border-bottom: 1px solid alpha(#45475a, 0.3);
+}
+
+notebook tab {
+    background: transparent;
+    color: #585b70;
+    padding: 8px 16px;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.2s ease;
+}
+
+notebook tab:hover {
+    background: alpha(#89b4fa, 0.08);
+    color: @fg_color;
+}
+
+notebook tab:checked {
+    background: alpha(#89b4fa, 0.15);
+    color: #89b4fa;
+    border-bottom: 2px solid #89b4fa;
+}
+
+/* ── Menu / Popover ─────────────────────────────────────── */
+menu,
+popover,
+.context-menu {
+    background: alpha(#181825, 0.92);
+    border-radius: 14px;
+    border: 1px solid alpha(#89b4fa, 0.15);
+    padding: 6px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+menuitem {
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+
+menuitem:hover {
+    background: alpha(#89b4fa, 0.12);
+}
+
+menuitem label {
+    color: @fg_color;
+}
+
+menuitem accelerator {
+    color: alpha(@fg_color, 0.5);
+}
+
+/* ── Separator ──────────────────────────────────────────── */
+separator {
+    background: alpha(#45475a, 0.3);
+    min-height: 1px;
+}
+
+/* ── Sidebar ────────────────────────────────────────────── */
+sidebar {
+    background: alpha(#11111b, 0.85);
+    border-right: 1px solid alpha(#45475a, 0.3);
+}
+
+sidebar row {
+    border-radius: 8px;
+    margin: 2px 4px;
+}
+
+/* ── Progress Bar ───────────────────────────────────────── */
+progressbar trough {
+    background: alpha(#313244, 0.8);
+    border-radius: 6px;
+    min-height: 8px;
+}
+
+progressbar progress {
+    background: linear-gradient(90deg, #89b4fa, #cba6f7);
+    border-radius: 6px;
+    min-height: 8px;
+}
+
+/* ── Level Bar ──────────────────────────────────────────── */
+levelbar trough {
+    background: alpha(#313244, 0.8);
+    border-radius: 4px;
+    min-height: 6px;
+}
+
+levelbar block.filled {
+    background: #89b4fa;
+    border-radius: 4px;
+    min-height: 6px;
+}
+
+levelbar block.empty {
+    background: alpha(#313244, 0.5);
+}
+
+levelbar block.full {
+    background: #a6e3a1;
+}
+
+levelbar block.low {
+    background: #f9e2af;
+}
+
+levelbar block.high {
+    background: #89b4fa;
+}
+
+/* ── ComboBox ───────────────────────────────────────────── */
+combobox button {
+    background: alpha(#313244, 0.7);
+    border: 1px solid alpha(#45475a, 0.4);
+    border-radius: 10px;
+}
+
+combobox button:hover {
+    border-color: alpha(#89b4fa, 0.4);
+}
+
+/* ── InfoBar ────────────────────────────────────────────── */
+infobar {
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+
+infobar.info {
+    background: alpha(#89b4fa, 0.12);
+    border: 1px solid alpha(#89b4fa, 0.3);
+}
+
+infobar.warning {
+    background: alpha(#fab387, 0.12);
+    border: 1px solid alpha(#fab387, 0.3);
+}
+
+infobar.error {
+    background: alpha(#f38ba8, 0.12);
+    border: 1px solid alpha(#f38ba8, 0.3);
+}
+
+/* ── Calendar ───────────────────────────────────────────── */
+calendar {
+    background: alpha(#181825, 0.95);
+    border-radius: 12px;
+    border: 1px solid alpha(#45475a, 0.3);
+    padding: 8px;
+}
+
+calendar:selected {
+    background: alpha(#89b4fa, 0.25);
+    border-radius: 8px;
+}
+
+/* ── Spinner ────────────────────────────────────────────── */
+spinner {
+    color: #89b4fa;
+}
+
+/* ── Frame ──────────────────────────────────────────────── */
+frame {
+    border: none;
+}
+
+frame > border {
+    border: 1px solid alpha(#45475a, 0.3);
+    border-radius: 12px;
+}
+
+/* ── Paned ──────────────────────────────────────────────── */
+paned > separator {
+    min-width: 2px;
+    min-height: 2px;
+    background: alpha(#45475a, 0.3);
+}
+
+paned > separator:hover {
+    background: alpha(#89b4fa, 0.4);
+}

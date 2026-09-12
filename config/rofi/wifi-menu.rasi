@@ -25,7 +25,7 @@ element {
     padding:            10px 14px;
 }
 
-element selected {
+element.selected {
     background-color:   rgba(148, 226, 213, 18%);
     text-color:         @teal;
 }

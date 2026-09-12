@@ -2,7 +2,7 @@
 
 window {
     width:              48%;
-    border:             2px solid;
+    border:             2;
     border-color:       rgba(137, 180, 250, 60%);
     border-radius:      14px;
 }
@@ -30,7 +30,7 @@ element {
     border-radius:      8px;
 }
 
-element selected {
+element.selected {
     background-color:   rgba(137, 180, 250, 22%);
     text-color:         @blue;
 }

@@ -92,7 +92,6 @@ window {
     width:              44%;
     location:           center;
     anchor:             center;
-    box-shadow:         0 16px 56px rgba(0, 0, 0, 0.35), 0 0 1px rgba(137, 180, 250, 0.3);
 }
 
 mainbox {
@@ -152,7 +151,7 @@ button {
     margin:             0;
 }
 
-button selected {
+button.selected {
     background-color:   rgba(137, 180, 250, 16%);
     text-color:         @blue;
 }

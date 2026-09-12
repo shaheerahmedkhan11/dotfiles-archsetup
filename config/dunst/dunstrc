@@ -67,21 +67,21 @@
     pause_on_mouse_over = true
 
 [urgency_low]
-    background = "#181825"
+    background = "#1e1e2e"
     foreground = "#a6adc8"
     frame_color = "#585b70"
     timeout = 5
     default_icon = dialog-information
 
 [urgency_normal]
-    background = "#181825"
+    background = "#1e1e2e"
     foreground = "#cdd6f4"
-    frame_color = "#89b4fa"
+    frame_color = "#b4befe"
     timeout = 10
     default_icon = dialog-information
 
 [urgency_critical]
-    background = "#181825"
+    background = "#1e1e2e"
     foreground = "#f38ba8"
     frame_color = "#f38ba8"
     timeout = 0

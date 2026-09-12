@@ -17,7 +17,7 @@ window#waybar {
 }
 
 tooltip {
-    background: rgba(11, 11, 20, 0.92);
+    background: rgba(18, 18, 30, 0.94);
     color: #cdd6f4;
     border-radius: 14px;
     border: 1px solid rgba(137, 180, 250, 0.35);
@@ -57,12 +57,12 @@ tooltip label {
 #idle_inhibitor,
 #custom-notifications,
 #custom-power {
-    background: rgba(24, 24, 37, 0.80);
+    background: rgba(30, 30, 48, 0.82);
     color: #cdd6f4;
     padding: 1px 8px;
     margin: 3px 2px;
     border-radius: 12px;
-    border: 1px solid rgba(137, 180, 250, 0.12);
+    border: 1px solid rgba(137, 180, 250, 0.18);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -79,10 +79,10 @@ tooltip label {
 #idle_inhibitor:hover,
 #custom-notifications:hover,
 #custom-power:hover {
-    background: rgba(36, 36, 52, 0.88);
-    border: 1px solid rgba(203, 166, 247, 0.45);
+    background: rgba(42, 42, 62, 0.90);
+    border: 1px solid rgba(203, 166, 247, 0.55);
     padding: 1px 10px;
-    box-shadow: 0 4px 16px rgba(137, 180, 250, 0.12);
+    box-shadow: 0 4px 16px rgba(137, 180, 250, 0.20);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -125,7 +125,7 @@ tooltip label {
 
 #workspaces button.active {
     color: #11111b;
-    background: rgba(137, 180, 250, 0.92);
+    background: rgba(137, 180, 250, 0.95);
     font-weight: 800;
     padding: 1px 10px;
     border: 1px solid rgba(137, 180, 250, 0.5);
@@ -186,7 +186,7 @@ tooltip label {
 #clock {
     color: #cba6f7;
     font-weight: 800;
-    background: rgba(203, 166, 247, 0.15);
+    background: rgba(203, 166, 247, 0.20);
     border: 1px solid rgba(203, 166, 247, 0.30);
     padding: 1px 10px;
     font-size: 12px;

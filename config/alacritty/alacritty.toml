@@ -18,7 +18,7 @@ COLORTERM = "truecolor"
 padding = { x = 16, y = 12 }
 dynamic_padding = true
 decorations = "None"
-opacity = 0.78
+opacity = 0.82
 dynamic_title = true
 startup_mode = "Windowed"
 blur = true

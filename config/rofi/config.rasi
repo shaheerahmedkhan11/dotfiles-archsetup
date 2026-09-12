@@ -26,7 +26,7 @@ configuration {
 * {
     font: "JetBrainsMono Nerd Font 12";
 
-    background:           rgba(11, 11, 20, 88%);
+    background:           rgba(16, 16, 28, 90%);
     foreground:           rgba(205, 214, 244, 100%);
 
     blue:                 rgba(137, 180, 250, 100%);
@@ -38,20 +38,20 @@ configuration {
     teal:                 rgba(148, 226, 213, 100%);
     lavender:             rgba(180, 190, 254, 100%);
 
-    surface-0:            rgba(24, 24, 37, 100%);
-    surface-1:            rgba(17, 17, 27, 100%);
-    surface-2:            rgba(36, 36, 52, 100%);
+    surface-0:            rgba(30, 30, 48, 100%);
+    surface-1:            rgba(22, 22, 35, 100%);
+    surface-2:            rgba(42, 42, 62, 100%);
 
-    border-glow:          rgba(137, 180, 250, 35%);
-    border-glow-hover:    rgba(137, 180, 250, 55%);
-    border-glow-active:   rgba(137, 180, 250, 75%);
+    border-glow:          rgba(137, 180, 250, 45%);
+    border-glow-hover:    rgba(137, 180, 250, 60%);
+    border-glow-active:   rgba(137, 180, 250, 80%);
 
     text-muted:           rgba(108, 112, 134, 100%);
 
     normal-background:    transparent;
     normal-foreground:    @foreground;
 
-    selected-normal-background: rgba(137, 180, 250, 18%);
+    selected-normal-background: rgba(137, 180, 250, 22%);
     selected-normal-foreground: @blue;
 
     active-background:    rgba(137, 180, 250, 12%);
@@ -92,7 +92,7 @@ window {
     width:              44%;
     location:           center;
     anchor:             center;
-    box-shadow:         0 12px 48px rgba(0, 0, 0, 0.45);
+    box-shadow:         0 16px 56px rgba(0, 0, 0, 0.35), 0 0 1px rgba(137, 180, 250, 0.3);
 }
 
 mainbox {
